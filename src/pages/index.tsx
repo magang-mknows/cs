@@ -1,9 +1,9 @@
 import { FC, lazy, ReactElement } from "react";
-import SuspenseError from "../modules/Common/suspense-error";
-import { ErrorHome } from "../modules/Home/error-home";
-import { LoadingHome } from "../modules/Home/loading-home";
+import SuspenseError from "../modules/common/suspense-error";
+import { ErrorHome } from "../modules/home/error-home";
+import { LoadingHome } from "../modules/home/loading-home";
 
-const HomeModules = lazy(() => import("../modules/Home"));
+const HomeModules = lazy(() => import("../modules/home"));
 
 const HomePages: FC = (): ReactElement => {
   return (

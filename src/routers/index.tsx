@@ -1,6 +1,6 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { ErrorHome } from "../modules/Home/error-home";
+import { ErrorHome } from "../modules/home/error-home";
 
 const HomePages = lazy(() => import("../pages"));
 
