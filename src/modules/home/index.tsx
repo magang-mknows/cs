@@ -1,10 +1,11 @@
 import { FC, ReactElement } from "react";
+import { BaseLayout } from "../../layouts";
 
 const HomeModules: FC = (): ReactElement => {
   return (
-    <div className="flex w-full items-center justify-center">
+    <BaseLayout>
       <h1 className="text-4xl text-red-400">Credit Scoring</h1>
-    </div>
+    </BaseLayout>
   );
 };
 
