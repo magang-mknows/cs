@@ -9,6 +9,5 @@ export const routes = createBrowserRouter([
     path: "/",
     element: <HomePages />,
     errorElement: <ErrorHome />,
-    loader: () => console.log("load home"),
   },
 ]);
