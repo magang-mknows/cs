@@ -3,16 +3,15 @@ import { createPortal } from "react-dom";
 import Card from "../molecules/card";
 
 const Modal: FC = (): ReactElement => {
-  return (
+  return createPortal(
     <section>
       <div>
         <span>Modal Title</span>
       </div>
       <Card />
-    </section>
+    </section>,
+    document.getElementById("modal") as HTMLElement
   );
 };
-
-createPortal(<Modal />, document.getElementById("modal") as HTMLElement);
 
 export default Modal;
