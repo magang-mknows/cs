@@ -1,9 +1,5 @@
 import { FC, ReactElement, useState } from "react";
 import logo from "../../assets/logo.webp";
-import dashboardIcon from "../../assets/sidebar/dashboard-icon.svg";
-import reportIcon from "../../assets/sidebar/report-icon.svg";
-import requestIcon from "../../assets/sidebar/request-icon.svg";
-import billingIcon from "../../assets/sidebar/billing-icon.svg";
 
 const Sidebar: FC = (): ReactElement => {
   const [open, setOpen] = useState(true);
