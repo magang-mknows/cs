@@ -1,11 +1,10 @@
+import Button from "@/components/atoms/button";
+import { CardProps } from "@/components/type";
 import type { FC, ReactElement } from "react";
-import { CardProps } from "../type";
 import { Link } from "react-router-dom";
-import Button from "../atoms/button";
 
 const Card: FC<CardProps> = ({
   className,
-  headerClassName,
   bodyClassName,
   children,
   title,
@@ -47,6 +46,7 @@ const Card: FC<CardProps> = ({
         </Link>
       ) : (
         <div
+          data-testid="card"
           className={`${className} relative flex auto flex-col cursor-pointer rounded bg-[#ffffff]`}
           onClick={onClick}
         >
@@ -72,6 +72,7 @@ const Card: FC<CardProps> = ({
         </div>
       )}
     </>
-  )};
+  );
+};
 
 export default Card;

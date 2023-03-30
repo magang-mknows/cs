@@ -11,7 +11,6 @@ const Button: FC<ButtonProps> = ({
   text,
   to,
   icon,
-  WFull,
   color = "primary",
   hasImg,
   hasExternal,
@@ -47,7 +46,7 @@ const Button: FC<ButtonProps> = ({
   const merged = clsx(
     "flex gap-x-2 rounded justify-center items-center hover:opacity-50 duration-1000",
     colorClass[color],
-    className
+    className,
   );
 
   return (

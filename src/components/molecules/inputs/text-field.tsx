@@ -1,11 +1,4 @@
-import {
-  FC,
-  forwardRef,
-  ReactElement,
-  Ref,
-  ReactNode,
-  ChangeEventHandler,
-} from "react";
+import { FC, forwardRef, ReactElement, Ref, ReactNode, ChangeEventHandler } from "react";
 import { useController } from "react-hook-form";
 import type { UseControllerProps, FieldValues } from "react-hook-form";
 
@@ -61,9 +54,7 @@ export const TextField: FC<IProps<FieldValues>> = forwardRef(
             }`}
           >
             {props.label}
-            {props.required && (
-              <span className="text-error-base font-bold ml-1">*</span>
-            )}
+            {props.required && <span className="text-error-base font-bold ml-1">*</span>}
           </label>
         )}
 
@@ -134,10 +125,7 @@ export const TextField: FC<IProps<FieldValues>> = forwardRef(
           )}
 
           {props.append && (
-            <label
-              className=" flex items-end justify-center w-auto"
-              htmlFor={props.name}
-            >
+            <label className=" flex items-end justify-center w-auto" htmlFor={props.name}>
               {props.append}
             </label>
           )}
@@ -156,12 +144,12 @@ export const TextField: FC<IProps<FieldValues>> = forwardRef(
                 : ""
             }
           >
-            {props.error || props.warning || props.success || ` `}
+            {props.error || props.warning || props.success || " "}
           </span>
         </div>
       </section>
     );
-  }
+  },
 );
 
 TextField.displayName = "TextField";
