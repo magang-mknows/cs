@@ -1,5 +1,5 @@
 import { FC, ReactElement, useState } from "react";
-import logo from "../../assets/logo.webp";
+import logo from "../../../public/assets/logo.webp";
 
 const Sidebar: FC = (): ReactElement => {
   const [open, setOpen] = useState(true);
