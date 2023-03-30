@@ -72,7 +72,6 @@ const Card: FC<CardProps> = ({
         </div>
       )}
     </>
-  );
-};
+  )};
 
 export default Card;
