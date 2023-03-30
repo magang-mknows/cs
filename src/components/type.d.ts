@@ -12,15 +12,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   hasExternal?: boolean;
   loading?: boolean;
   textStyle?: string;
-  color?:
-    | "noBorder"
-    | "primary"
-    | "purple"
-    | "blue"
-    | "success"
-    | "warning"
-    | "danger"
-    | "neutral";
+  color?: "noBorder" | "primary" | "purple" | "blue" | "success" | "warning" | "danger" | "neutral";
   type?: "submit" | "button" | "reset";
   icon?: ReactNode | StaticImageData;
 }

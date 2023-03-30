@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const Card: FC<CardProps> = ({
   className,
-  headerClassName,
   bodyClassName,
   children,
   title,
@@ -47,6 +46,7 @@ const Card: FC<CardProps> = ({
         </Link>
       ) : (
         <div
+          data-testid="card"
           className={`${className} relative flex auto flex-col cursor-pointer rounded bg-[#ffffff]`}
           onClick={onClick}
         >
