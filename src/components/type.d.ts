@@ -12,13 +12,23 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   hasExternal?: boolean;
   loading?: boolean;
   textStyle?: string;
-  color?: "noBorder" | "primary" | "success" | "warning" | "danger";
+  color?:
+    | "noBorder"
+    | "primary"
+    | "purple"
+    | "blue"
+    | "success"
+    | "warning"
+    | "danger"
+    | "neutral";
   type?: "submit" | "button" | "reset";
   icon?: ReactNode | StaticImageData;
 }
 
 export interface CardProps {
   className?: string;
+  headerClassName?: string;
+  bodyClassName?: string;
   title?: string;
   icon?: ReactNode;
   children?: ReactNode;

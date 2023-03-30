@@ -19,10 +19,16 @@ const Button: FC<ButtonProps> = ({
   ...props
 }): ReactElement => {
   const colorClass = {
-    noBorder: `bg-transparent text-[#106FA4] disabled:text-[#A3A3A3] ${
+    noBorder: `bg-transparent text-[#171717 disabled:text-[#A3A3A3] ${
       loading && "!text-[#67A5C8]"
     }`,
     primary: `bg-[#4AC1A2] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] ${
+      loading && "!bg-[#71E0B9]"
+    }`,
+    purple: `bg-secondaryV2-500 text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] ${
+      loading && "!bg-[#71E0B9]"
+    }`,
+    blue: `bg-secondary-600 text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] ${
       loading && "!bg-[#71E0B9]"
     }`,
     success: `bg-[#54B435] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] ${
@@ -33,6 +39,9 @@ const Button: FC<ButtonProps> = ({
     }`,
     danger: `bg-[#F14F48] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] ${
       loading && "!bg-[#F14F48]"
+    }`,
+    neutral: `bg-neutral-400 text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] ${
+      loading && "!bg-neutral-100"
     }`,
   };
   const merged = clsx(
@@ -46,21 +55,13 @@ const Button: FC<ButtonProps> = ({
       {to !== undefined ? (
         <Link to={hasExternal ? `${"https://" + to}` : `${to}`}>
           <button type={type} className={merged} {...props} onClick={onClick}>
-            {hasImg ? (
-              <img src={icon} className="text-black" alt="Icon" />
-            ) : (
-              <>{icon as ReactNode}</>
-            )}
+            {hasImg ? <img src={icon} alt="Icon" /> : <>{icon as ReactNode}</>}
             <p className={textStyle}>{text}</p>
           </button>
         </Link>
       ) : (
         <button className={merged} {...props} onClick={onClick}>
-          {hasImg ? (
-            <img src={icon} className="text-black" alt="Icon" />
-          ) : (
-            <>{icon as ReactNode}</>
-          )}
+          {hasImg ? <img src={icon} alt="Icon" /> : <>{icon as ReactNode}</>}
           <p className={textStyle}>{text}</p>
         </button>
       )}

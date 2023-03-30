@@ -5,9 +5,10 @@ import Button from "../atoms/button";
 
 const Card: FC<CardProps> = ({
   className,
+  headerClassName,
+  bodyClassName,
   children,
   title,
-  icon,
   src,
   href,
   imgwidth,
@@ -28,7 +29,7 @@ const Card: FC<CardProps> = ({
       {href ? (
         <Link to={`${href}`}>
           <div
-            className={`${className} flex auto p-4 flex-col`}
+            className={`${className} flex auto p-4 flex-col rounded bg-[#ffffff]`}
             onClick={() => onClick}
           >
             {hasImage && (
@@ -40,41 +41,34 @@ const Card: FC<CardProps> = ({
                 height={imgheight}
               />
             )}
-            {icon}
-            <h1 className={titleStyle}>{title}</h1>
             <section className="flex">{children}</section>
+            <h1 className={titleStyle}>{title}</h1>
           </div>
         </Link>
       ) : (
         <div
-          className={`${className} flex auto p-4 flex-col cursor-pointer`}
+          className={`${className} relative flex auto flex-col cursor-pointer rounded bg-[#ffffff]`}
           onClick={onClick}
         >
-          {hasImage && (
-            <img
-              className={`w-full object-cover ${imgStyle}`}
-              src={src}
-              alt="Picture of the author"
-              width={imgwidth}
-              height={imgheight}
-            />
-          )}
-          {icon}
-          <h1 className={titleStyle}>{title}</h1>
-          <section className="flex ">{children}</section>
+          <section className="flex w-full ">{children}</section>
+          <div className={titleStyle}>
+            <h1>{title}</h1>
+          </div>
 
-          {hasButton && (
-            <Link to={`${buttonHref}`}>
-              <section className="flex justify-center">
-                <Button
-                  className={buttonClassName}
-                  text={buttonText}
-                  color={buttonColor}
-                  textStyle={buttonTextStyle}
-                />
-              </section>
-            </Link>
-          )}
+          <div className={bodyClassName}>
+            {hasButton && (
+              <Link to={`${buttonHref}`}>
+                <section className="flex justify-center">
+                  <Button
+                    className={buttonClassName}
+                    text={buttonText}
+                    color={buttonColor}
+                    textStyle={buttonTextStyle}
+                  />
+                </section>
+              </Link>
+            )}
+          </div>
         </div>
       )}
     </>
