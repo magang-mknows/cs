@@ -1,9 +1,5 @@
 import { FC, ReactElement, useState } from "react";
 import logo from "../../assets/logo.webp";
-import dashboardIcon from "../../assets/sidebar/dashboard-icon.svg";
-import reportIcon from "../../assets/sidebar/report-icon.svg";
-import requestIcon from "../../assets/sidebar/request-icon.svg";
-import billingIcon from "../../assets/sidebar/billing-icon.svg";
 
 const Sidebar: FC = (): ReactElement => {
   const [open, setOpen] = useState(true);
@@ -17,13 +13,13 @@ const Sidebar: FC = (): ReactElement => {
         data-drawer-toggle="separator-sidebar"
         aria-controls="separator-sidebar"
         type="button"
-        className=" fixed bottom-10 right-10 inline-flex items-center p-2 mt-2 ml-3 bg-[#9E9E9E9E] text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        className="z-50 fixed bottom-10 right-10 inline-flex items-center p-2 mt-2 ml-3 bg-[#9E9E9E9E] text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
         onClick={toggleSidebar}
       >
         <svg
           className="w-6 h-6 text-white"
           aria-hidden="true"
-          fill="currentColor"
+          fill="white"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -38,8 +34,8 @@ const Sidebar: FC = (): ReactElement => {
       <aside
         id="separator-sidebar"
         className={` ${
-          open ? "-translate-x-full" : "sm:translate-x-0"
-        } fixed top-0 left-0 z-40 lg:sm:translate-x-0 w-64 h-screen transition-transform text-black`}
+          open ? "-translate-x-full" : "sm:translate-x-0 "
+        } absolute top-0 left-0 z-50 lg:sm:translate-x-0 w-64 h-screen transition-transform text-black bg-[#ffffff]`}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto text-black bg-gray-50">
