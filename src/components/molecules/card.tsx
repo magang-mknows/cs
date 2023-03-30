@@ -47,10 +47,10 @@ const Card: FC<CardProps> = ({
         </Link>
       ) : (
         <div
-          className={`${className} relative flex auto flex-col cursor-pointer rounded bg-[#ffffff]`}
+          className={`${className} flex auto flex-col cursor-pointer rounded bg-[#ffffff]`}
           onClick={onClick}
         >
-          <section className="flex w-full ">{children}</section>
+          <section className="flex">{children}</section>
           <div className={titleStyle}>
             <h1>{title}</h1>
           </div>

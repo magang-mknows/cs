@@ -45,12 +45,12 @@ const Sidebar: FC = (): ReactElement => {
             </li>
           </ul>
           <ul className="pt-4 mt-4 space-y-2 font-medium border-t w-full border-[#F5F5F5]">
-            <li className="text-[#9E9E9E] hover:text-white">
+            <li>
               <a
                 href="/"
-                className="flex items-center p-2 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-[#4AC1A2] dark:text-[#9E9E9E] hover:text-white"
+                className="text-[#9E9E9E] hover:text-[#ffffff] flex items-center p-2 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-[#4AC1A2] dark:text-[#9E9E9E] hover:text-white"
               >
-                <div className="w-[24px] flex justify-center">
+                <div className=" w-[24px] flex justify-center ">
                   <svg
                     width="21"
                     height="21"
@@ -64,10 +64,10 @@ const Sidebar: FC = (): ReactElement => {
                 <span className="ml-4">Dashboard</span>
               </a>
             </li>
-            <li className="text-[#9E9E9E] hover:text-white">
+            <li>
               <a
                 href="/"
-                className="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-[#4AC1A2] dark:text-[#9E9E9E] hover:text-white "
+                className="text-[#9E9E9E] hover:text-[#ffffff] flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-[#4AC1A2] dark:text-[#9E9E9E] hover:text-white "
               >
                 <div className="w-[24px] flex justify-center">
                   <svg
@@ -87,10 +87,10 @@ const Sidebar: FC = (): ReactElement => {
                 <span className="ml-4">Permintaan</span>
               </a>
             </li>
-            <li className="text-[#9E9E9E] hover:text-white">
+            <li>
               <a
                 href="/"
-                className="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg dark:hover:bg-[#4AC1A2] dark:text-[#9E9E9E] hover:text-white"
+                className="text-[#9E9E9E] hover:text-[#ffffff] flex items-center p-2 text-gray-900 transition duration-75 rounded-lg dark:hover:bg-[#4AC1A2] dark:text-[#9E9E9E] hover:text-white"
               >
                 <div className="w-[24px] flex justify-center">
                   <svg
@@ -137,10 +137,10 @@ const Sidebar: FC = (): ReactElement => {
                 <span className="ml-4">Laporan</span>
               </a>
             </li>
-            <li className="text-[#9E9E9E] hover:text-white">
+            <li>
               <a
                 href="/"
-                className="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg dark:hover:bg-[#4AC1A2] dark:text-[#9E9E9E] hover:text-white"
+                className="text-[#9E9E9E] hover:text-[#ffffff] flex items-center p-2 text-gray-900 transition duration-75 rounded-lg dark:hover:bg-[#4AC1A2] dark:text-[#9E9E9E] hover:text-white"
               >
                 <div className="w-[24px] flex justify-center">
                   <svg
@@ -164,11 +164,11 @@ const Sidebar: FC = (): ReactElement => {
               </a>
             </li>
           </ul>
-          <ul className="bottom-0 pt-4 mt-4 font-medium">
-            <li className="text-[#9E9E9E] hover:text-white">
+          <ul className="absolute w-full bottom-0 pt-4 mt-4 font-medium">
+            <li>
               <a
                 href="/"
-                className="flex items-center p-2 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-[#4AC1A2] dark:text-[#9E9E9E] hover:text-white"
+                className="text-[#9E9E9E] hover:text-[#ffffff] flex items-center p-2 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-[#4AC1A2] dark:text-[#9E9E9E] hover:text-white"
               >
                 <div className="w-[24px] flex justify-center text-[#9E9E9E] dark:text-white">
                   <svg
