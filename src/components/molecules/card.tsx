@@ -1,12 +1,7 @@
 import { FC, ReactElement } from "react";
-import Button from "../atoms/button";
 
 const Card: FC = (): ReactElement => {
-  return (
-    <section>
-      <Button />
-    </section>
-  );
+  return <section></section>;
 };
 
 export default Card;
