@@ -25,11 +25,8 @@ export interface CardProps {
   icon?: ReactNode;
   children?: ReactNode;
   titleStyle?: string;
-  imgwidth?: number;
-  imgheight?: number;
   src?: StaticImport;
   topText?: string;
-  hasImage?: boolean;
   hasButton?: boolean;
   href?: string;
   imgStyle?: string;
