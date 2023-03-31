@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
-import { BaseLayout } from "../../layouts";
-import Card from "../../components/molecules/card";
+import { BaseLayout } from "@/layouts/base/index";
+import Card from "@/components/molecules/card/index";
 import AiAutomation from "../../../public/assets/ai-automation.svg";
 
 const HomeModules: FC = (): ReactElement => {
