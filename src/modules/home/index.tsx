@@ -1,8 +1,8 @@
 import { FC, ReactElement } from "react";
-import { BaseLayout } from "../../layouts";
-import Sidebar from "../../components/organisms/sidebar";
-import Card from "../../components/molecules/card";
-import ReportIcon from "../../assets/logo.webp";
+import { BaseLayout } from "@/layouts/base";
+import Sidebar from "@/components/organisms/sidebar";
+import Card from "@/components/molecules/card";
+import ReportIcon from "@/assets/logo.webp";
 
 const HomeModules: FC = (): ReactElement => {
   return (

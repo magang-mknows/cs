@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
-import { TCommon } from "../utilities/entities";
-import Sidebar from "../components/organisms/sidebar";
+import { TCommon } from "../../utilities/entities";
+import Sidebar from "../../components/organisms/sidebar";
 
 export const BaseLayout: FC<TCommon> = ({ children }): ReactElement => {
   return (
