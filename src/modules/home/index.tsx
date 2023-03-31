@@ -1,33 +1,29 @@
 import { FC, ReactElement } from "react";
 import { BaseLayout } from "../../layouts";
-import Sidebar from "../../components/organisms/sidebar";
 import Card from "../../components/molecules/card";
-import ReportIcon from "../../assets/logo.webp";
+import AiAutomation from "../../../public/assets/ai-automation.svg";
 
 const HomeModules: FC = (): ReactElement => {
   return (
     <BaseLayout>
-      <Sidebar />
       <Card
-        className="w-[247px] h-[103px] shadow-lg p-2"
-        hasImage={false}
-        imgStyle="w-full h-full"
-        src={ReportIcon}
+        className="w-[247px] h-[107px] relative shadow-md py-8 px-4"
         hasButton={false}
         buttonClassName="w-full h-10"
         buttonColor="neutral"
         buttonText="halo ilham"
         buttonTextStyle="font-bold text-[#FFFFFF]"
       >
-        <div className="flex flex-row w-full my-8 mr-10">
-          <div className="w-[60%]">
-            <img src={ReportIcon} alt="" className="w-[400px]" />
+        <div className="flex flex-row w-full h-full space-x-[10px]">
+          <div>
+            <img src={AiAutomation} alt="" className="w-16 " />
           </div>
-          <div className="text-xs flex-col w-full pl-3">
-            <p className="font-semibold">AI Automation</p>
-            <p className="text-neutral-400 font-normal">Data Masuk (500)</p>
+
+          <div className="flex-col w-full space-y-1">
+            <p className="text-sm font-semibold">AI Capital Strength Analysis</p>
+            <p className="text-neutral-400 font-normal text-xs">Data Masuk (500)</p>
           </div>
-          <div className="text-center right-4 top-4 absolute rounded-[40px] w-[27px] h-[27px] bg-neutral-200">
+          <div className="text-center text-sm right-2 top-2 absolute rounded-[40px] w-[22px] h-[22px] bg-neutral-200">
             1
           </div>
         </div>

@@ -8,14 +8,9 @@ const Card: FC<CardProps> = ({
   bodyClassName,
   children,
   title,
-  src,
   href,
-  imgwidth,
-  imgheight,
   titleStyle,
-  hasImage,
   hasButton,
-  imgStyle,
   buttonClassName,
   buttonColor,
   buttonText,
@@ -31,15 +26,6 @@ const Card: FC<CardProps> = ({
             className={`${className} flex auto p-4 flex-col rounded bg-[#ffffff]`}
             onClick={() => onClick}
           >
-            {hasImage && (
-              <img
-                className={`object-cover ${imgStyle}`}
-                src={src}
-                alt="Picture of the author"
-                width={imgwidth}
-                height={imgheight}
-              />
-            )}
             <section className="flex">{children}</section>
             <h1 className={titleStyle}>{title}</h1>
           </div>
