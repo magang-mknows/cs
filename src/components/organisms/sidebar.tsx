@@ -10,13 +10,13 @@ const Sidebar: FC = (): ReactElement => {
     <>
       <button
         type="button"
-        className="z-50 fixed bottom-10 right-10 inline-flex items-center p-2 mt-2 ml-3 bg-[#9E9E9E9E] text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        className="z-50 fixed bottom-10 shadow-md right-10 inline-flex items-center p-2 mt-2 ml-3 bg-[#ffffff] text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
         onClick={toggleSidebar}
       >
         <svg
-          className="w-6 h-6 text-[#ffffff]"
+          className="w-6 h-6 text-[#9E9E9E9E] "
           aria-hidden="true"
-          fill="white"
+          fill="#9E9E9E9E"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >
