@@ -12,7 +12,7 @@ export const routes = createBrowserRouter([
     errorElement: <ErrorHome />,
   },
   {
-    path: "auth/login",
+    path: "/auth/login",
     element: <LoginPages />,
   },
 ]);
