@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 export const NavbarSkeleton = (): ReactElement => {
   return (
     <div className="fixed top-0 w-full space-x-2 h-[70px] bg-netural-100 flex justify-end  items-center bg-[#ffffff] my-0 px-7">

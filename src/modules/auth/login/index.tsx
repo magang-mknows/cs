@@ -1,6 +1,7 @@
 import { FC, ReactElement } from "react";
 import TextField from "@/components/molecules/inputs/text-field";
 import Button from "@/components/atoms/button";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -63,9 +64,11 @@ const LoginModules: FC = (): ReactElement => {
       />
       <CheckboxField name="remember" variant="md" control={control} label="Ingatkan Saya" />
       <div className="flex flex-col mt-6">
-        <Button className="w-full p-3 rounded-md" disabled={!formState.isValid}>
-          Masuk
-        </Button>
+        <Link to={"/"}>
+          <Button className="w-full p-3 rounded-md" disabled={!formState.isValid}>
+            Masuk
+          </Button>
+        </Link>
       </div>
     </section>
   );

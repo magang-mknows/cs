@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement, Fragment, useState } from "react";
 
 const SidebarSkeleton: FC = (): ReactElement => {
   const [open, setOpen] = useState(true);
@@ -6,7 +6,7 @@ const SidebarSkeleton: FC = (): ReactElement => {
     setOpen(!open);
   };
   return (
-    <>
+    <Fragment>
       <button
         data-drawer-target="separator-sidebar"
         data-drawer-toggle="separator-sidebar"
@@ -44,7 +44,7 @@ const SidebarSkeleton: FC = (): ReactElement => {
           </ul>
         </div>
       </aside>
-    </>
+    </Fragment>
   );
 };
 
