@@ -42,6 +42,7 @@ const EyeOpen: FC = (): ReactElement => (
 const TextField = <T extends FieldValues>({
   variant = "lg",
   type = "text",
+  status = "none",
   ...props
 }: IProps<T>): ReactElement => {
   const [showPassword, setShowPassword] = useState(false);
@@ -85,15 +86,18 @@ const TextField = <T extends FieldValues>({
           type={type === "password" ? (!showPassword ? type : "text") : type}
           {...{ ...props, ...field }}
           className={`w-full  ${
-            props.status === "error" &&
-            "focus:ring-1 focus:ring-error-base bg-error-100 ring-1 ring-error-base"
+            status === "error" &&
+            "focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base"
           }
 
-          ${props.status === "success" && "focus:ring-1 focus:ring-success-base bg-success-100"}
+          ${status === "success" && "focus:ring-1 focus:ring-success-base bg-success-100"}
 
-          ${props.status === "warning" && "focus:ring-1 focus:ring-warning-base bg-warning-100"}
+          ${status === "warning" && "focus:ring-1 focus:ring-warning-base bg-warning-100"}
 
-          ${!props.status && "ring-gray-300 ring-1 focus:ring-primary-base bg-gray-100"}
+          ${
+            !status ||
+            (status === "none" && "ring-gray-300 ring-1 focus:ring-primary-base bg-gray-100")
+          }
 
              ${
                variant === "lg"
@@ -110,7 +114,7 @@ const TextField = <T extends FieldValues>({
         />
 
         <div className="absolute flex right-4 top-1/2 transform -translate-y-1/2 space-x-2">
-          {props.status === "success" && (
+          {status === "success" && (
             <img src="/assets/check-circle.svg" alt="check circle" width={20} height={20} />
           )}
           {type === "password" && (
@@ -131,11 +135,11 @@ const TextField = <T extends FieldValues>({
         <span className="text-grey-600">{props.hint}</span>
         <span
           className={
-            props.status === "error"
+            status === "error"
               ? "text-error-base"
-              : props.status === "success"
+              : status === "success"
               ? "text-success-base"
-              : props.status === "warning"
+              : status === "warning"
               ? "text-warning-base"
               : ""
           }
