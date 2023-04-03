@@ -11,7 +11,7 @@ export interface IInputTextProps {
   className?: string;
   labelClassName?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
-  status?: "success" | "error" | "warning";
+  status?: "success" | "error" | "warning" | "none";
   message?: string;
   variant: "lg" | "md" | "sm";
   icon?: ReactNode | StaticImageData;
