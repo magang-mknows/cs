@@ -47,10 +47,11 @@ const Card: FC<CardProps> = ({
                 <section className="flex justify-center">
                   <Button
                     className={buttonClassName}
-                    text={buttonText}
                     color={buttonColor}
                     textStyle={buttonTextStyle}
-                  />
+                  >
+                    {buttonText}
+                  </Button>
                 </section>
               </Link>
             )}

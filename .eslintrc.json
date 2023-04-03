@@ -60,6 +60,9 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": "off",
-    "react/prop-types": [0]
+    "react/prop-types": [0],
+    "no-invalid-regexp": "off",
+    "import/namespace": "off",
+    "import/named": "off"
   }
 }
