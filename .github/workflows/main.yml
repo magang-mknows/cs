@@ -1,0 +1,33 @@
+name: Testing
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          node-version: 18
+      - run: yarn install
+      - run: yarn lint:fix
+
+  Unit_Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          node-version: 18
+      - run: yarn install
+      - run: yarn test:run
+
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          node-version: 18
+      - run: yarn install
+      - run: yarn build

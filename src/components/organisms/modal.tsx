@@ -10,7 +10,7 @@ const Modal: FC = (): ReactElement => {
       </div>
       <Card />
     </section>,
-    document.getElementById("modal") as HTMLElement
+    document.getElementById("modal") as HTMLElement,
   );
 };
 
