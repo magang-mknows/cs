@@ -3,26 +3,9 @@ import { TCommon } from "@/utilities/entities";
 
 export const AuthLayout: FC<TCommon> = ({ children }): ReactElement => {
   return (
-    <>
-      <section className="flex w-screen z-0 h-screen overflow-hidden bg-primary-400">
-        <div className="p-10">{children}</div>
-        <img
-          src={"/assets/auth/asset3.svg"}
-          alt="variasi"
-          width={400}
-          className="items-end absolute mt-[84vh] mx-40 overflow-hidden"
-        />
-
-        <div className="flex  w-screen justify-end items-start overflow-hidden">
-          <img
-            src={"/assets/auth/asset2.svg"}
-            alt="variasi"
-            width={250}
-            className="absolute  mx-20"
-          />
-          <img src={"/assets/auth/asset1.svg"} alt="variasi" width={250} />
-        </div>
-      </section>
-    </>
+    <section className="flex flex-col p-10 w-full z-0 h-screen overflow-hidden bg-primary-100">
+      <img src="/assets/auth/logo.svg" alt="logo" width={200} />
+      <div className="flex items-center justify-center w-full h-full p-10">{children}</div>
+    </section>
   );
 };
