@@ -161,7 +161,7 @@ const Sidebar: FC = (): ReactElement => {
               </a>
             </li>
           </ul>
-          <ul className=" pt-4 mt-4 font-medium">
+          <ul className="pt-4 mt-4 font-medium">
             <li>
               <a
                 href="/"
