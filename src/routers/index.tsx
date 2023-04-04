@@ -1,7 +1,11 @@
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { AuthLayout } from "@/layouts/auth";
 import { BaseLayout } from "@/layouts/base";
+import SuspenseError from "@/modules/common/suspense-error";
+
+import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
+import { ErrorHome } from "@/modules/home/error-home";
 
 const HomePages = lazy(() => import("@/pages/home"));
 const LoginPages = lazy(() => import("@/pages/auth/login"));
@@ -15,9 +19,9 @@ export const routes = createBrowserRouter([
       {
         path: "/auth/login",
         element: (
-          <Suspense fallback="loading...">
+          <SuspenseError loading={"..ini loading"} error={"..ini error"}>
             <LoginPages />
-          </Suspense>
+          </SuspenseError>
         ),
       },
     ],
@@ -29,9 +33,9 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: (
-          <Suspense fallback="loading...">
+          <SuspenseError loading={BaseLayoutSkeleton} error={ErrorHome}>
             <HomePages />
-          </Suspense>
+          </SuspenseError>
         ),
       },
       {
@@ -41,10 +45,16 @@ export const routes = createBrowserRouter([
       {
         path: "/permintaan",
         element: (
-          <Suspense fallback="loading...">
+          <SuspenseError loading={"..ini loading"} error={"..ini error"}>
             <RequestPages />
-          </Suspense>
+          </SuspenseError>
         ),
+        children: [
+          {
+            path: "/permintaan/process",
+            element: <div></div>,
+          },
+        ],
       },
       {
         path: "/laporan",
