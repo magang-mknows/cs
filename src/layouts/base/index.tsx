@@ -7,17 +7,23 @@ import { Outlet } from "react-router-dom";
 
 export const BaseLayout: FC = (): ReactElement => {
   return (
-    <div className="flex flex-row">
-      <div>
-        <SuspenseError loading={<SidebarSkeleton />} error="error was happen in loading">
-          <Sidebar />
-        </SuspenseError>
-      </div>
+    <div className="h-screen">
+      <div className="flex flex-row">
+        <div>
+          <SuspenseError loading={<SidebarSkeleton />} error="error was happen in loading">
+            <Sidebar />
+          </SuspenseError>
+        </div>
 
-      <section className="flex flex-col justify-center items-center w-full h-screen bg-[#F6FBFA]">
-        <Navbar />
-        <Outlet />
-      </section>
+        <section className="flex flex-col space-y-14 absolute justify-center items-center w-full bg-[#F6FBFA]">
+          <div className="w-full">
+            <Navbar />
+          </div>
+          <div>
+            <Outlet />
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

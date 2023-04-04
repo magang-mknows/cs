@@ -33,7 +33,7 @@ const Card: FC<CardProps> = ({
       ) : (
         <div
           data-testid="card"
-          className={`${className} relative flex auto flex-col cursor-pointer rounded bg-[#ffffff]`}
+          className={`${className} relative flex auto flex-col cursor-default rounded bg-[#ffffff]`}
           onClick={onClick}
         >
           <section className="flex w-full ">{children}</section>
