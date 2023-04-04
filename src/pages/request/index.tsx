@@ -1,16 +1,14 @@
-import { FC, lazy, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 import SuspenseError from "@/modules/common/suspense-error";
 import { ErrorHome } from "@/modules/home/error-home";
 import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
 
-const HomeModules = lazy(() => import("@/modules/home"));
-
-const HomePages: FC = (): ReactElement => {
+const RequestPages: FC = (): ReactElement => {
   return (
     <SuspenseError error={<ErrorHome />} loading={<BaseLayoutSkeleton />}>
-      <HomeModules />
+      <h1>Ini permintaan pake component dari modules</h1>
     </SuspenseError>
   );
 };
 
-export default HomePages;
+export default RequestPages;

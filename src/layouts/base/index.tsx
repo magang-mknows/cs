@@ -1,11 +1,11 @@
 import { FC, ReactElement } from "react";
-import { TCommon } from "@/utilities/entities";
 import Sidebar from "@/components/organisms/sidebar";
 import { Navbar } from "@/components/organisms/navbar";
 import SuspenseError from "@/modules/common/suspense-error";
 import SidebarSkeleton from "@/components/organisms/sidebar-skeleton";
+import { Outlet } from "react-router-dom";
 
-export const BaseLayout: FC<TCommon> = ({ children }): ReactElement => {
+export const BaseLayout: FC = (): ReactElement => {
   return (
     <div className="flex flex-row">
       <div>
@@ -16,7 +16,7 @@ export const BaseLayout: FC<TCommon> = ({ children }): ReactElement => {
 
       <section className="flex flex-col justify-center items-center w-full h-screen bg-[#F6FBFA]">
         <Navbar />
-        {children}
+        <Outlet />
       </section>
     </div>
   );

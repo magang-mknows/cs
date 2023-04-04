@@ -1,6 +1,6 @@
 import Button from "@/components/atoms/button";
 import { CardProps } from "@/components/type";
-import type { FC, ReactElement } from "react";
+import { FC, ReactElement, Fragment } from "react";
 import { Link } from "react-router-dom";
 
 const Card: FC<CardProps> = ({
@@ -19,7 +19,7 @@ const Card: FC<CardProps> = ({
   onClick,
 }): ReactElement => {
   return (
-    <>
+    <Fragment>
       {href ? (
         <Link to={`${href}`}>
           <div
@@ -58,7 +58,7 @@ const Card: FC<CardProps> = ({
           </div>
         </div>
       )}
-    </>
+    </Fragment>
   );
 };
 
