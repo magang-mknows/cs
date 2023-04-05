@@ -1,7 +1,7 @@
-import { FC, ReactElement, useEffect } from "react";
-import { AuthLayout } from "@/layouts/auth";
+import { FC, ReactElement } from "react";
 import TextField from "@/components/molecules/inputs/text-field";
 import Button from "@/components/atoms/button";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,7 +18,7 @@ const LoginModules: FC = (): ReactElement => {
 
   type ValidationSchema = z.infer<typeof validationSchema>;
 
-  const { control, formState, getFieldState } = useForm<ValidationSchema>({
+  const { control, formState } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: "all",
     defaultValues: {
@@ -28,43 +28,49 @@ const LoginModules: FC = (): ReactElement => {
     },
   });
 
-  useEffect(() => {
-    console.log(getFieldState("email"));
-  }, [getFieldState("email")]);
-
   return (
-    <AuthLayout>
-      <section className="bg-white items-center justify-center p-6 shadow-gray-300 shadow-lg w-1/2 h-1/2 rounded-sm">
-        <TextField
-          type="email"
-          label="Email"
-          name="email"
-          control={control}
-          placeholder="msdqn@psu.org"
-          variant="md"
-          required
-          rules={{
-            required: true,
-          }}
-        />
-        <TextField
-          type="password"
-          label="Password"
-          name="password"
-          required
-          rules={{
-            required: true,
-          }}
-          placeholder="Masukkan Password Anda"
-          control={control}
-          variant="md"
-        />
-        <CheckboxField name="remember" variant="md" control={control} label="Ingatkan Saya" />
-        <Button className="w-full p-3 rounded-md" disabled={!formState.isValid} loading={true}>
-          Masuk
-        </Button>
-      </section>
-    </AuthLayout>
+    <section className="bg-white items-center justify-center p-6 shadow-gray-300 shadow-lg  w-[400px] h-auto rounded-sm">
+      <h1 className="text-primary-base text-center font-[600] font-sans text-5xl">Masuk</h1>
+      <p className="text-base text-gray-400 text-center">
+        Silahkan masuk dengan email dan kata sandi anda
+      </p>
+      <TextField
+        type="email"
+        label="Email"
+        name="email"
+        control={control}
+        placeholder="msdqn@psu.org"
+        status={formState.errors.email ? "error" : "none"}
+        message={formState.errors.email?.message}
+        variant="md"
+        required
+        rules={{
+          required: true,
+        }}
+      />
+      <TextField
+        type="password"
+        label="Password"
+        name="password"
+        required
+        status={formState.errors.password ? "error" : "none"}
+        message={formState.errors.password?.message}
+        rules={{
+          required: true,
+        }}
+        placeholder="Masukkan Password Anda"
+        control={control}
+        variant="md"
+      />
+      <CheckboxField name="remember" variant="md" control={control} label="Ingatkan Saya" />
+      <div className="flex flex-col mt-6">
+        <Link to={"/"}>
+          <Button className="w-full p-3 rounded-md" disabled={!formState.isValid}>
+            Masuk
+          </Button>
+        </Link>
+      </div>
+    </section>
   );
 };
 

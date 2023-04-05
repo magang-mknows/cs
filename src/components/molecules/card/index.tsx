@@ -1,6 +1,6 @@
 import Button from "@/components/atoms/button";
 import { CardProps } from "@/components/type";
-import type { FC, ReactElement } from "react";
+import { FC, ReactElement, Fragment } from "react";
 import { Link } from "react-router-dom";
 
 const Card: FC<CardProps> = ({
@@ -19,7 +19,7 @@ const Card: FC<CardProps> = ({
   onClick,
 }): ReactElement => {
   return (
-    <>
+    <Fragment>
       {href ? (
         <Link to={`${href}`}>
           <div
@@ -33,7 +33,7 @@ const Card: FC<CardProps> = ({
       ) : (
         <div
           data-testid="card"
-          className={`${className} relative flex auto flex-col cursor-pointer rounded bg-[#ffffff]`}
+          className={`${className} relative flex auto flex-col cursor-default rounded bg-[#ffffff]`}
           onClick={onClick}
         >
           <section className="flex w-full ">{children}</section>
@@ -58,7 +58,7 @@ const Card: FC<CardProps> = ({
           </div>
         </div>
       )}
-    </>
+    </Fragment>
   );
 };
 
