@@ -16,7 +16,7 @@ export interface CardProps {
   buttonClassName?: string;
   buttonColor?: ButtonProps.color;
   buttonText?: string;
-  buttonTextStyle?: string;
+  buttonTextstyle?: string;
   buttonHref?: ReactNode;
   onClick?: MouseEventHandler<HTMLDivElement>;
 }
