@@ -61,7 +61,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/laporan",
-        element: <div>Ini halaman laporan</div>,
+        element: (
+          <SuspenseError loading={<Spinner />} error={"..ini error"}>
+            <h1>Hallo gays</h1>
+          </SuspenseError>
+        ),
       },
       {
         path: "/kuota",

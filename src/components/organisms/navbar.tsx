@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-export const Navbar = (): ReactElement => {
+const Navbar = (): ReactElement => {
   return (
     <div className="fixed w-full space-x-2 h-[70px] flex justify-end items-center bg-white my-0 px-7 mb-38">
       <a href="">
@@ -12,3 +12,4 @@ export const Navbar = (): ReactElement => {
     </div>
   );
 };
+export default Navbar;

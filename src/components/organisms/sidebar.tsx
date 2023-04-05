@@ -165,7 +165,7 @@ const Sidebar: FC = (): ReactElement => {
               );
             })}
             <Link to={"/auth/login"}>
-              <div className="flex h-full gap-2 p-3 rounded-md mt-[80%] text-neutral-400 hover:bg-neutral-300 hover:text-[#ffffff] cursor-pointer items-end">
+              <div className="flex h-full gap-2 p-3 rounded-md mt-[90%] text-neutral-400 hover:bg-neutral-300 hover:text-[#ffffff] cursor-pointer items-end">
                 <span>
                   <svg
                     width="18"
