@@ -8,7 +8,7 @@ const RequestPages: FC = (): ReactElement => {
   return (
     <SuspenseError error={<ErrorHome />} loading={<BaseLayoutSkeleton />}>
       <section className="flex justify-center mt-10 lg:justify-end lg:pr-4 w-screen">
-        <Card className="w-[79%] h-[1200px] bg-white">halo</Card>
+        <Card className="w-[79%] h-[1200px] bg-white">halo gaysss</Card>
       </section>
     </SuspenseError>
   );

@@ -143,7 +143,7 @@ const Sidebar: FC = (): ReactElement => {
         id="separator-sidebar"
         className={` ${
           open ? "  -translate-x-full" : " sm:translate-x-0 "
-        } absolute top-0 left-0 z-50 lg:sm:translate-x-0 w-64 h-full transition-transform text-black bg-[#ffffff] `}
+        } absolute lg:relative top-0 left-0 z-50 lg:sm:translate-x-0 w-64 h-full transition-transform text-black bg-[#ffffff] `}
         aria-label="Sidebar"
       >
         <div className="h-screen px-3 py-4  text-black bg-white border-b">
