@@ -5,7 +5,9 @@ import { BaseLayout } from "@/layouts/base";
 import SuspenseError from "@/modules/common/suspense-error";
 
 import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
+import { AuthSkeleton } from "@/layouts/auth/auth-skeleton";
 import { ErrorHome } from "@/modules/home/error-home";
+import { ErrorLogin } from "@/modules/auth/login/error-login";
 
 const HomePages = lazy(() => import("@/pages/home"));
 const LoginPages = lazy(() => import("@/pages/auth/login"));
@@ -19,7 +21,7 @@ export const routes = createBrowserRouter([
       {
         path: "/auth/login",
         element: (
-          <SuspenseError loading={"..ini loading"} error={"..ini error"}>
+          <SuspenseError loading={<AuthSkeleton />} error={<ErrorLogin />}>
             <LoginPages />
           </SuspenseError>
         ),
@@ -33,7 +35,7 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: (
-          <SuspenseError loading={BaseLayoutSkeleton} error={ErrorHome}>
+          <SuspenseError loading={<BaseLayoutSkeleton />} error={<ErrorHome />}>
             <HomePages />
           </SuspenseError>
         ),

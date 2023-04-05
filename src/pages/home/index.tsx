@@ -7,11 +7,9 @@ const HomeModules = lazy(() => import("@/modules/home"));
 
 const HomePages: FC = (): ReactElement => {
   return (
-    <>
-      <SuspenseError loading={BaseLayoutSkeleton} error={ErrorHome}>
-        <HomeModules />
-      </SuspenseError>
-    </>
+    <SuspenseError loading={<BaseLayoutSkeleton />} error={<ErrorHome />}>
+      <HomeModules />
+    </SuspenseError>
   );
 };
 
