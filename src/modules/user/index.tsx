@@ -7,7 +7,7 @@ const UserModules: FC = (): ReactElement => {
 
   return (
     <div className="bg-white w-full h-full my-8 ">
-      <div className="flex justify-between p-8 py-16">
+      <div className="flex justify-between p-8 pt-12">
         <div className="flex p-2 w-[420px] rounded-md border">
           <h1>Dari : {date}</h1>
           <input type="date" />
