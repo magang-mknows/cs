@@ -10,8 +10,9 @@ import { AuthSkeleton } from "@/layouts/auth/auth-skeleton";
 import { ErrorHome } from "@/modules/home/error-home";
 import { ErrorLogin } from "@/modules/auth/login/error-login";
 
-const HomePages = lazy(() => import("@/pages/home"));
 const LoginPages = lazy(() => import("@/pages/auth/login"));
+const HomePages = lazy(() => import("@/pages/home"));
+const UserPages = lazy(() => import("@/pages/user"));
 const RequestPages = lazy(() => import("@/pages/request"));
 
 export const routes = createBrowserRouter([
@@ -43,7 +44,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/user",
-        element: <Spinner />,
+        element: (
+          <SuspenseError loading={<Spinner />} error={"..ini error"}>
+            <UserPages />
+          </SuspenseError>
+        ),
       },
       {
         path: "/permintaan",
