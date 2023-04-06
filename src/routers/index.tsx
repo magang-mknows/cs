@@ -9,6 +9,7 @@ import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
 import { AuthSkeleton } from "@/layouts/auth/auth-skeleton";
 import { ErrorHome } from "@/modules/home/error-home";
 import { ErrorLogin } from "@/modules/auth/login/error-login";
+import ReportPages from "@/pages/report";
 
 const LoginPages = lazy(() => import("@/pages/auth/login"));
 const HomePages = lazy(() => import("@/pages/home"));
@@ -45,7 +46,7 @@ export const routes = createBrowserRouter([
       {
         path: "/user",
         element: (
-          <SuspenseError loading={<Spinner />} error={"..ini error"}>
+          <SuspenseError loading={<BaseLayoutSkeleton />} error={"..ini error"}>
             <UserPages />
           </SuspenseError>
         ),
@@ -53,7 +54,7 @@ export const routes = createBrowserRouter([
       {
         path: "/permintaan",
         element: (
-          <SuspenseError loading={<Spinner />} error={"..ini error"}>
+          <SuspenseError loading={<BaseLayoutSkeleton />} error={"..ini error"}>
             <RequestPages />
           </SuspenseError>
         ),
@@ -67,14 +68,18 @@ export const routes = createBrowserRouter([
       {
         path: "/laporan",
         element: (
-          <SuspenseError loading={<Spinner />} error={"..ini error"}>
-            <h1>Hallo gays</h1>
+          <SuspenseError loading={<BaseLayoutSkeleton />} error={"..ini error"}>
+            <ReportPages />
           </SuspenseError>
         ),
       },
       {
         path: "/kuota",
-        element: <div>Ini halaman kuota</div>,
+        element: (
+          <SuspenseError loading={<Spinner />} error={"..ini error"}>
+            <div>Ini halaman kuota yaaa</div>
+          </SuspenseError>
+        ),
       },
     ],
   },

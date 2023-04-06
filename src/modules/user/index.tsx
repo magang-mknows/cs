@@ -44,9 +44,9 @@ const UserModules: FC = (): ReactElement => {
               />
             </div>
             <Button className="px-8 py-2 bg-primary-400 mx-4">Search</Button>
-            <Button className="py-2 border bg-white text-primary-500 font-semibold w-full border-primary-400">
+            <button className="py-2 border bg-white text-primary-500 font-semibold w-full border-primary-400 rounded-md">
               + Tambah Data
-            </Button>
+            </button>
           </form>
         </div>
       </div>
