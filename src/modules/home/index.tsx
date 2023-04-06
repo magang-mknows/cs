@@ -1,8 +1,14 @@
 import { FC, ReactElement } from "react";
-import CardSection from "./card-section";
+import CardSection from "./history-request-section";
+import SkorSection from "./skor-section";
 
 const HomeModules: FC = (): ReactElement => {
-  return <CardSection />;
+  return (
+    <>
+      <CardSection />
+      <SkorSection />
+    </>
+  );
 };
 
 export default HomeModules;

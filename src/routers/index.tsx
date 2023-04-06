@@ -2,6 +2,7 @@ import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { AuthLayout } from "@/layouts/auth";
 import { BaseLayout } from "@/layouts/base";
+import Spinner from "@/components/atoms/spinner";
 import SuspenseError from "@/modules/common/suspense-error";
 
 import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
@@ -42,12 +43,12 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/user",
-        element: <div>Ini halaman user</div>,
+        element: <Spinner />,
       },
       {
         path: "/permintaan",
         element: (
-          <SuspenseError loading={"..ini loading"} error={"..ini error"}>
+          <SuspenseError loading={<Spinner />} error={"..ini error"}>
             <RequestPages />
           </SuspenseError>
         ),
@@ -60,7 +61,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/laporan",
-        element: <div>Ini halaman laporan</div>,
+        element: (
+          <SuspenseError loading={<Spinner />} error={"..ini error"}>
+            <h1>Hallo gays</h1>
+          </SuspenseError>
+        ),
       },
       {
         path: "/kuota",

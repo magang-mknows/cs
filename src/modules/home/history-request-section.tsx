@@ -35,7 +35,7 @@ const dummyData = [
 
 const CardSection: FC = (): ReactElement => {
   return (
-    <section className="flex flex-col w-full h-full">
+    <section className="flex flex-col w-full h-auto">
       <h1 className="text-xl font-semibold p-4">RIWAYAT PERMINTAAN</h1>
       <div className="grid lg:grid-cols-4 grid-cols-1 gap-x-3 gap-y-4">
         {dummyData.map((x, i) => {
@@ -47,7 +47,7 @@ const CardSection: FC = (): ReactElement => {
                 buttonClassName={`flex py-1 justify-end items-end my-2 ${x.bgButton} w-full`}
                 className="w-[247px] h-auto absolute shadow-md y-4 px-4"
               >
-                <div className="flex flex-row w-full h-full space-x-[10px]">
+                <div className="flex flex-row w-full h-full space-x-[10px] py-4">
                   <div>
                     <img src={x.icon} alt="" className="w-16 " />
                   </div>
