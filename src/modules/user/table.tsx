@@ -54,7 +54,7 @@ const Table: FC = (): ReactElement => {
                 <td className="px-6 py-4 text-[#262626]">{x.No}</td>
                 <td className="px-6 py-4 text-[#262626]">{x.Nik}</td>
                 <td className="px-6 py-4 font-bold text-[#262626]">{x.Nama}</td>
-                <td className="px-6 py-4 text-[#262626]">{x.Berkas}</td>
+                <td className="px-6 py-4 text-[#262626] text-blue-500 font-semibold">{x.Berkas}</td>
               </tr>
             </tbody>
           );

@@ -7,7 +7,7 @@ const UserModules: FC = (): ReactElement => {
 
   return (
     <div className="bg-white w-full h-full my-8 ">
-      <div className="flex justify-between p-8 py-16">
+      <div className="flex justify-between p-8 pt-12">
         <div className="flex p-2 w-[420px] rounded-md border">
           <h1>Dari : {date}</h1>
           <input type="date" />
@@ -44,7 +44,7 @@ const UserModules: FC = (): ReactElement => {
               />
             </div>
             <Button className="px-8 py-2 bg-primary-400 mx-4">Search</Button>
-            <Button className="py-2 border bg-white text-primary-400 w-full border-primary-400">
+            <Button className="py-2 border bg-white text-primary-500 font-semibold w-full border-primary-400">
               + Tambah Data
             </Button>
           </form>
@@ -55,7 +55,7 @@ const UserModules: FC = (): ReactElement => {
           <Table />
         </div>
         <div className="flex w-full justify-center items-center gap-x-2">
-          <div className="p-2 px-3 border rounded-md">
+          <div className="p-2 px-3 border rounded-md cursor-pointer">
             <svg
               width="8"
               height="12"
@@ -72,7 +72,7 @@ const UserModules: FC = (): ReactElement => {
           <div className="p-2 px-3 border rounded-md">1</div>
           <div className="p-2 px-3 border rounded-md">2</div>
           <div className="p-2 px-3 border rounded-md">3</div>
-          <div className="p-2 px-3 border rounded-md">
+          <div className="p-2 px-3 border rounded-md cursor-pointer">
             <svg
               width="8"
               height="12"
