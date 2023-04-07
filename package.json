@@ -9,13 +9,14 @@
     "preview": "vite preview",
     "lint": "eslint src/**/*.{ts,tsx}",
     "lint:fix": "eslint --fix src/**/*.{ts,tsx}",
-    "format": "prettier --write src/**/*.{ts,tsx,css,md,json} --config ./.prettierrc",
+    "format": "prettier --write src/**/*.{ts,tsx,css} --config ./.prettierrc",
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest --coverage",
     "prepare": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.13",
     "@hookform/resolvers": "^3.0.0",
     "chart.js": "^4.2.1",
     "clsx": "^1.2.1",
