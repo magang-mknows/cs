@@ -18,8 +18,8 @@ const ChevronDown: FC = (): ReactElement => {
 };
 
 const Select = forwardRef(({ variant = "lg", ...props }: ISelect): ReactElement => {
-  const getLabel = (value: string): boolean =>
-    props.options?.find((item: ISelect): boolean => item.value === value)?.label;
+  const getLabel = (value: string): string | undefined =>
+    props.options?.find((item) => item.value === value)?.label;
   return (
     <Listbox
       name={props.name}
