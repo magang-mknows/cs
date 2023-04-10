@@ -14,7 +14,16 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
   disabled?: boolean;
   textStyle?: string;
-  color?: "noBorder" | "primary" | "purple" | "blue" | "success" | "warning" | "danger" | "neutral";
+  color?:
+    | "noBorder"
+    | "borderWarning"
+    | "primary"
+    | "purple"
+    | "blue"
+    | "success"
+    | "warning"
+    | "danger"
+    | "neutral";
   type?: "submit" | "button" | "reset";
   icon?: ReactNode | StaticImageData;
   children: ReactNode | string;
