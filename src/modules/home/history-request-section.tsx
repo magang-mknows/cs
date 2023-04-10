@@ -23,7 +23,7 @@ const dummyData = [
     icon: Card3,
     title: "AI Location Movement",
     desc: "7.225 Total Permintaan",
-    bgButton: "bg-blue-400",
+    bgButton: "bg-blue-500",
   },
   {
     icon: Card4,

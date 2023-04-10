@@ -6,17 +6,39 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ChartDoughnut: FC = (): ReactElement => {
   const data = {
-    labels: ["Red", "Blue", "Yellow"],
+    labels: ["A (Sangat Baik)", "B (Baik)", "C (Cukup Baik)", "D (Buruk)", "E (Sangat Buruk)"],
     datasets: [
       {
         label: "My First Dataset",
-        data: [300, 50, 100],
-        backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)"],
-        hoverOffset: 4,
+        data: [80, 40, 60, 50, 70],
+        backgroundColor: [
+          "rgb(19, 131, 123)",
+          "rgb(74, 193, 162)",
+          "rgb(253, 230, 138)",
+          "rgb(231, 175, 82)",
+          "rgb(137, 124, 192)",
+        ],
+        weight: 1,
       },
     ],
   };
-  return <Doughnut data={data} />;
+
+  const options = {
+    plugins: {
+      animation: {
+        animateScale: true,
+        animateRotate: true,
+      },
+      responsive: true,
+      maintainAspectRatio: false,
+      tooltip: {
+        enabled: true,
+      },
+    },
+    cutout: "70%",
+    radius: "80%",
+  };
+  return <Doughnut data={data} options={options} />;
 };
 
 export default ChartDoughnut;
