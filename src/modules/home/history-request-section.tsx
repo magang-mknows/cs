@@ -11,25 +11,25 @@ const dummyData = [
     icon: Card1,
     title: "AI Automation",
     desc: "7.865 Total Permintaan",
-    bgButton: "bg-[#897CC0]",
+    bgButton: "bg-purple-500",
   },
   {
     icon: Card2,
     title: "AI Document Verification",
     desc: "6.825 Total Permintaan",
-    bgButton: "bg-[#4AC1A2]",
+    bgButton: "bg-primary-500",
   },
   {
     icon: Card3,
     title: "AI Location Movement",
     desc: "7.225 Total Permintaan",
-    bgButton: "bg-[#6C99C6]",
+    bgButton: "bg-blue-400",
   },
   {
     icon: Card4,
     title: "AI Capacity & Earning Power",
     desc: "3.865 Total Permintaan",
-    bgButton: "bg-[#E7AF52]",
+    bgButton: "bg-warning-300",
   },
 ];
 

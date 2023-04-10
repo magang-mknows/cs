@@ -18,7 +18,7 @@ const table = [
     Berkas: "Lihat Detail",
     Tggl_permintaan: "11/2/2021",
     Tggl_selesai: "11/07/2023",
-    Skor: "Sangat Baik",
+    Skor: "Cukup Baik",
     Detail: "Lihat Detail",
   },
   {
@@ -38,7 +38,7 @@ const table = [
     Berkas: "Lihat Detail",
     Tggl_permintaan: "11/2/2021",
     Tggl_selesai: "11/07/2023",
-    Skor: "Sangat Baik",
+    Skor: "Sangat Buruk",
     Detail: "Lihat Detail",
   },
 ];
@@ -180,11 +180,24 @@ const Table: FC = (): ReactElement => {
                 <td className="px-6 py-4">{x.Tggl_permintaan}</td>
                 <td className="px-6 py-4">{x.Tggl_selesai}</td>
                 <td className="px-6 py-4 bg-green-400">
-                  <button className="bg-[#54B435] text-white w-full p-2 rounded-md">
+                  <button
+                    className={` ${
+                      x.Skor === "Sangat Baik"
+                        ? "bg-success-400"
+                        : x.Skor === "Cukup Baik"
+                        ? "bg-warning-300"
+                        : "bg-error-400"
+                    } text-white w-[110px] text-sm p-2 rounded-md`}
+                  >
                     {x.Skor}
                   </button>
                 </td>
-                <td className="px-6 py-4 text-[#262626] text-blue-600 font-semibold">{x.Detail}</td>
+                <td className="px-2 py-4 text-md text-[#262626] text-blue-600 ">
+                  <div className="flex gap-2">
+                    <img src="/assets/pdf.svg" alt="logo" />
+                    <p>Lihat PDF</p>
+                  </div>
+                </td>
               </tr>
             </tbody>
           );
