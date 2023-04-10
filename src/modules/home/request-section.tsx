@@ -1,7 +1,7 @@
 import { FC, ReactElement } from "react";
-import ChartDoughnut from "@/components/molecules/chart/chart-doughnut";
+import ChartLine from "@/components/molecules/chart/chart-line";
 
-const SkorSection: FC = (): ReactElement => {
+const RequestSection: FC = (): ReactElement => {
   return (
     <section className="bg-white h-auto w-[50%] my-4">
       <h1 className="text-xl font-semibold p-4">RIWAYAT NILAI SKOR</h1>
@@ -30,8 +30,14 @@ const SkorSection: FC = (): ReactElement => {
           </select>
         </div>
       </div>
-      <ChartDoughnut />
+      <div className="flex px-8 justify-end gap-4">
+        <button className="border border-primary-500 rounded-full w-6 text-md">+</button>
+        <button className="border border-primary-500 rounded-full w-6 text-md">-</button>
+      </div>
+      <div className="py-8">
+        <ChartLine />
+      </div>
     </section>
   );
 };
-export default SkorSection;
+export default RequestSection;
