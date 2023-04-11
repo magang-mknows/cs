@@ -35,12 +35,13 @@ const Button: FC<IButtonProps> = ({
 }): ReactElement => {
   const colorClass = {
     noBorder: "bg-transparent text-gray-400 disabled:text-gray-200",
+    borderWarning: "bg-[#ffffff] border-[#E7AF52] border-2 text-gray-400 disabled:text-gray-200",
     primary:
       "bg-primary-base text-white disabled:bg-gray-100 disabled:border-gray-300 disabled:border disabled:text-gray-300 font-[600]",
     purple: "bg-purple-base text-white disabled:bg-gray-500 disabled:text-gray-200",
     blue: "bg-blue-base text-white disabled:bg-gray-500 disabled:text-gray-200",
     success: "bg-[#54B435] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3]",
-    warning: "bg-[#F59E0B] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3]",
+    warning: "bg-[#E7AF52] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3]",
     danger: "bg-[#F14F48] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3]",
     neutral: "bg-neutral-400 text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3]",
   };
