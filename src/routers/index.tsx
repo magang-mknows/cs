@@ -6,6 +6,9 @@ import Spinner from "@/components/atoms/spinner";
 import SuspenseError from "@/modules/common/suspense-error";
 
 import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
+import { LoadingHome } from "@/modules/home/loading-home";
+import { LoadingUser } from "@/modules/user/loading-user";
+import { LoadingReport } from "@/modules/report/loading-report";
 import { AuthSkeleton } from "@/layouts/auth/auth-skeleton";
 import { ErrorHome } from "@/modules/home/error-home";
 import { ErrorLogin } from "@/modules/auth/login/error-login";
@@ -33,12 +36,16 @@ export const routes = createBrowserRouter([
   },
   {
     path: "/",
-    element: <BaseLayout />,
+    element: (
+      <SuspenseError loading={<BaseLayoutSkeleton />} error={<ErrorHome />}>
+        <BaseLayout />
+      </SuspenseError>
+    ),
     children: [
       {
         path: "/",
         element: (
-          <SuspenseError loading={<BaseLayoutSkeleton />} error={<ErrorHome />}>
+          <SuspenseError loading={<LoadingHome />} error={<ErrorHome />}>
             <HomePages />
           </SuspenseError>
         ),
@@ -46,7 +53,7 @@ export const routes = createBrowserRouter([
       {
         path: "/user",
         element: (
-          <SuspenseError loading={<BaseLayoutSkeleton />} error={"..ini error"}>
+          <SuspenseError loading={<LoadingUser />} error={"..ini error"}>
             <UserPages />
           </SuspenseError>
         ),
@@ -54,7 +61,7 @@ export const routes = createBrowserRouter([
       {
         path: "/permintaan",
         element: (
-          <SuspenseError loading={<BaseLayoutSkeleton />} error={"..ini error"}>
+          <SuspenseError loading={<LoadingReport />} error={"..ini error"}>
             <RequestPages />
           </SuspenseError>
         ),
