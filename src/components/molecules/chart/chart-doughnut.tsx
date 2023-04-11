@@ -10,7 +10,7 @@ const ChartDoughnut: FC = (): ReactElement => {
     datasets: [
       {
         label: "My First Dataset",
-        data: [80, 40, 60, 50, 70],
+        data: [90, 20, 60, 100, 70],
         backgroundColor: [
           "rgb(19, 131, 123)",
           "rgb(74, 193, 162)",
@@ -18,25 +18,15 @@ const ChartDoughnut: FC = (): ReactElement => {
           "rgb(231, 175, 82)",
           "rgb(137, 124, 192)",
         ],
-        weight: 1,
       },
     ],
   };
 
   const options = {
-    plugins: {
-      animation: {
-        animateScale: true,
-        animateRotate: true,
-      },
-      responsive: true,
-      maintainAspectRatio: false,
-      tooltip: {
-        enabled: true,
-      },
-    },
-    cutout: "70%",
-    radius: "80%",
+    plugins: {},
+
+    cutout: "80%",
+    radius: "50%",
   };
   return <Doughnut data={data} options={options} />;
 };

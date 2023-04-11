@@ -7,17 +7,17 @@ const ReportModules: FC = (): ReactElement => {
 
   return (
     <div className="bg-white w-full h-full my-8 ">
-      <div className="flex gap-4 px-8 pt-12">
-        <div className="flex p-1 w-[380px] rounded-md border text-sm">
+      <div className="flex flex-col lg:flex-row justify-between gap-4 lg:px-8 px-2 pt-12">
+        <div className="flex  p-1 lg:w-[380px] w-[250px] rounded-md border text-sm">
           <h1>Dari : {date}</h1>
           <input type="date" />
           <h1>Sampai : {date}</h1>
           <input type="date" />
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-col lg:flex-row gap-2">
           <select
             id="category"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[30%] p-3 "
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[30%] w-full p-3 "
           >
             <option selected>Semua</option>
             <option value="US">AI Optimation</option>
@@ -91,7 +91,7 @@ const ReportModules: FC = (): ReactElement => {
           </div>
         </button>
       </div>
-      <div className="p-8">
+      <div className="lg:p-8 p-2">
         <Table />
       </div>
       <div className="flex w-full justify-center items-center gap-x-2">

@@ -3,7 +3,7 @@ import ChartDoughnut from "@/components/molecules/chart/chart-doughnut";
 
 const SkorSection: FC = (): ReactElement => {
   return (
-    <section className="bg-white h-auto w-[50%] my-4">
+    <section className="bg-white h-auto lg:w-[50%] w-full my-4">
       <h1 className="text-xl font-semibold p-4">RIWAYAT NILAI SKOR</h1>
       <div className="flex justify-between py-4">
         <div className="flex px-4 text-sm gap-3 ">
