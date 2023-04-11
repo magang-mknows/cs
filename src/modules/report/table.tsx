@@ -173,7 +173,7 @@ const Table: FC = (): ReactElement => {
         {table.map((x, i) => {
           return (
             <tbody key={i}>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
+              <tr className="bg-white border-b ">
                 <td className="px-6 py-4 text-[#262626]">{x.No}</td>
                 <td className="px-6 py-4 text-[#262626]">{x.Nik}</td>
                 <td className="px-6 py-4 font-bold text-[#262626]">{x.Nama}</td>
@@ -192,7 +192,7 @@ const Table: FC = (): ReactElement => {
                     {x.Skor}
                   </button>
                 </td>
-                <td className="px-2 py-4 text-md text-blue-600 ">
+                <td className="px-2 py-4 text-md text-[#262626] text-blue-600 ">
                   <div className="flex gap-2">
                     <img src="/assets/pdf.svg" alt="logo" />
                     <p>Lihat PDF</p>

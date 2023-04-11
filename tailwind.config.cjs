@@ -27,7 +27,7 @@ module.exports = {
         800: "#136810",
         900: "#0A560D",
       },
-      blue: {
+      secondary: {
         base: "#6FB2D8",
         100: "#CEE6F3",
         200: "#AED5EA",

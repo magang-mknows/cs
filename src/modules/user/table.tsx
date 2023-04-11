@@ -50,7 +50,7 @@ const Table: FC = (): ReactElement => {
         {table.map((x, i) => {
           return (
             <tbody key={i}>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
+              <tr className="bg-white border-b ">
                 <td className="px-6 py-4 text-[#262626]">{x.No}</td>
                 <td className="px-6 py-4 text-[#262626]">{x.Nik}</td>
                 <td className="px-6 py-4 font-bold text-[#262626]">{x.Nama}</td>

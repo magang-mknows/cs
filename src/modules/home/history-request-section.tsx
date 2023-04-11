@@ -1,32 +1,28 @@
-import Card from "@/components/molecules/card";
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, lazy } from "react";
 
-import Card1 from "../../../public/assets/dashboard/card1.svg";
-import Card2 from "../../../public/assets/dashboard/card2.svg";
-import Card3 from "../../../public/assets/dashboard/card3.svg";
-import Card4 from "../../../public/assets/dashboard/card4.svg";
+const Card = lazy(() => import("@/components/molecules/card"));
 
 const dummyData = [
   {
-    icon: Card1,
+    icon: "/assets/dashboard/card1.svg",
     title: "AI Automation",
     desc: "7.865 Total Permintaan",
     bgButton: "bg-purple-500",
   },
   {
-    icon: Card2,
+    icon: "/assets/dashboard/card2.svg",
     title: "AI Document Verification",
     desc: "6.825 Total Permintaan",
     bgButton: "bg-primary-500",
   },
   {
-    icon: Card3,
+    icon: "/assets/dashboard/card3.svg",
     title: "AI Location Movement",
     desc: "7.225 Total Permintaan",
-    bgButton: "bg-blue-400",
+    bgButton: "bg-secondary-500",
   },
   {
-    icon: Card4,
+    icon: "/assets/dashboard/card4.svg",
     title: "AI Capacity & Earning Power",
     desc: "3.865 Total Permintaan",
     bgButton: "bg-warning-300",
@@ -35,8 +31,8 @@ const dummyData = [
 
 const CardSection: FC = (): ReactElement => {
   return (
-    <section className="flex flex-col w-full h-auto">
-      <h1 className="text-xl font-semibold p-4">RIWAYAT PERMINTAAN</h1>
+    <section className="flex flex-col px-8 lg:px-2 w-full h-auto">
+      <h1 className="text-xl font-semibold lg:p-4 p-2">RIWAYAT PERMINTAAN</h1>
       <div className="grid lg:grid-cols-4 grid-cols-1 gap-x-3 gap-y-4">
         {dummyData.map((x, i) => {
           return (
