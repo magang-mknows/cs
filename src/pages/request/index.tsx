@@ -6,14 +6,16 @@ import Card from "@/components/molecules/card";
 import { Tab } from "@headlessui/react";
 
 import PermintaanPage from "./request-page";
+import ProsesPage from "./proses-page";
+import HasilPage from "@/modules/request/hasil-page";
 
 const RequestPages: FC = (): ReactElement => {
   const [active, setActive] = useState("permintaan");
   return (
     <SuspenseError error={<ErrorHome />} loading={<BaseLayoutSkeleton />}>
       <Tab.Group>
-        <section className="w-screen flex h-fit relative overflow-hidden justify-center lg:justify-end lg:pr-4">
-          <Card className=" w-[79%] h-fit rounded-lg bg-white ">
+        <section className="w-full flex h-fit relative pt-11 overflow-hidden justify-center lg:justify-end lg:pr-4">
+          <Card className="w-full h-fit rounded-lg bg-white">
             <div className="px-11 py-4 flex flex-col w-full ">
               <Tab.List
                 className="flex flex-row gap lg:gap-x-8 md:gap-x-2 text-base font-semibold"
@@ -68,8 +70,14 @@ const RequestPages: FC = (): ReactElement => {
                 <Tab.Panel>
                   <PermintaanPage />
                 </Tab.Panel>
-                <Tab.Panel>2</Tab.Panel>
-                <Tab.Panel>3</Tab.Panel>
+                {/* tab 2 */}
+                <Tab.Panel>
+                  <ProsesPage />
+                </Tab.Panel>
+                {/* tabel 3 */}
+                <Tab.Panel>
+                  <HasilPage />
+                </Tab.Panel>
               </Tab.Panels>
             </div>
           </Card>

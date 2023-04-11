@@ -1,7 +1,7 @@
 import { FC, ReactElement, useState } from "react";
 import Card from "@/components/molecules/card";
 import { Dialog } from "@headlessui/react";
-import AiAutomation from "../../../public/assets/ai-automation.svg";
+import AiAutomation from "../../../public/assets/request-page/ai-automation.svg";
 import Button from "@/components/atoms/button";
 
 const PermintaanPage: FC = (): ReactElement => {
@@ -27,7 +27,7 @@ const PermintaanPage: FC = (): ReactElement => {
     {
       name: "AI Capacity & Earning Power",
       totalData: 500,
-      totalNotifikasi: 1,
+      totalNotifikasi: 3,
     },
     {
       name: "AI Capital Strength Analysis",
@@ -37,13 +37,13 @@ const PermintaanPage: FC = (): ReactElement => {
     {
       name: "Ai Automation",
       totalData: 500,
-      totalNotifikasi: 1,
+      totalNotifikasi: 4,
       img: "",
     },
     {
       name: "Ai Document Verification",
       totalData: 500,
-      totalNotifikasi: 1,
+      totalNotifikasi: 8,
     },
     {
       name: "Ai Location & Movement",
@@ -53,12 +53,12 @@ const PermintaanPage: FC = (): ReactElement => {
     {
       name: "AI Capacity & Earning Power",
       totalData: 500,
-      totalNotifikasi: 1,
+      totalNotifikasi: 4,
     },
     {
       name: "AI Capital Strength Analysis",
       totalData: 500,
-      totalNotifikasi: 1,
+      totalNotifikasi: 2,
     },
     {
       name: "Ai Automation",

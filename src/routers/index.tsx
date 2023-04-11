@@ -2,13 +2,18 @@ import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { AuthLayout } from "@/layouts/auth";
 import { BaseLayout } from "@/layouts/base";
+import Spinner from "@/components/atoms/spinner";
 import SuspenseError from "@/modules/common/suspense-error";
 
 import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
+import { AuthSkeleton } from "@/layouts/auth/auth-skeleton";
 import { ErrorHome } from "@/modules/home/error-home";
+import { ErrorLogin } from "@/modules/auth/login/error-login";
+import ReportPages from "@/pages/report";
 
-const HomePages = lazy(() => import("@/pages/home"));
 const LoginPages = lazy(() => import("@/pages/auth/login"));
+const HomePages = lazy(() => import("@/pages/home"));
+const UserPages = lazy(() => import("@/pages/user"));
 const RequestPages = lazy(() => import("@/pages/request"));
 
 export const routes = createBrowserRouter([
@@ -19,7 +24,7 @@ export const routes = createBrowserRouter([
       {
         path: "/auth/login",
         element: (
-          <SuspenseError loading={"..ini loading"} error={"..ini error"}>
+          <SuspenseError loading={<AuthSkeleton />} error={<ErrorLogin />}>
             <LoginPages />
           </SuspenseError>
         ),
@@ -33,19 +38,23 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: (
-          <SuspenseError loading={BaseLayoutSkeleton} error={ErrorHome}>
+          <SuspenseError loading={<BaseLayoutSkeleton />} error={<ErrorHome />}>
             <HomePages />
           </SuspenseError>
         ),
       },
       {
         path: "/user",
-        element: <div>Ini halaman user</div>,
+        element: (
+          <SuspenseError loading={<BaseLayoutSkeleton />} error={"..ini error"}>
+            <UserPages />
+          </SuspenseError>
+        ),
       },
       {
         path: "/permintaan",
         element: (
-          <SuspenseError loading={"..ini loading"} error={"..ini error"}>
+          <SuspenseError loading={<BaseLayoutSkeleton />} error={"..ini error"}>
             <RequestPages />
           </SuspenseError>
         ),
@@ -58,11 +67,19 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/laporan",
-        element: <div>Ini halaman laporan</div>,
+        element: (
+          <SuspenseError loading={<BaseLayoutSkeleton />} error={"..ini error"}>
+            <ReportPages />
+          </SuspenseError>
+        ),
       },
       {
         path: "/kuota",
-        element: <div>Ini halaman kuota</div>,
+        element: (
+          <SuspenseError loading={<Spinner />} error={"..ini error"}>
+            <div>Ini halaman kuota yaaa</div>
+          </SuspenseError>
+        ),
       },
     ],
   },

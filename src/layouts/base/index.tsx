@@ -1,27 +1,30 @@
 import { FC, ReactElement } from "react";
-import Sidebar from "@/components/organisms/sidebar";
-import { Navbar } from "@/components/organisms/navbar";
-import SuspenseError from "@/modules/common/suspense-error";
-import { BaseLayoutSkeleton } from "./base-skeleton";
 import { Outlet } from "react-router-dom";
+import Sidebar from "@/components/organisms/sidebar";
+import Navbar from "@/components/organisms/navbar";
+import { NavbarSkeleton } from "@/components/organisms/navbar-sekeleton";
+import SidebarSkeleton from "@/components/organisms/sidebar-skeleton";
+import SuspenseError from "@/modules/common/suspense-error";
+import Spinner from "@/components/atoms/spinner";
 
 export const BaseLayout: FC = (): ReactElement => {
   return (
-    <div className="absolute flex flex-row">
-      <div className="left-0 top-0 z-50">
-        <Sidebar />
-      </div>
-
-      <section className="flex flex-col space-y-14  justify-center items-center bg-[#F6FBFA]">
-        <div className="w-full z-40">
+    <div className="flex flex-col ">
+      <div className="flex flex-row h-auto w-screen">
+        <SuspenseError loading={<NavbarSkeleton />} error={<>error was happen in loading</>}>
           <Navbar />
-        </div>
-        <SuspenseError loading={BaseLayoutSkeleton} error="error was happen in base layout">
-          <section className="flex justify-center h-full min-h-screen pt-10 lg:justify-end lg:pr-4 w-screen">
-            <Outlet />
-          </section>
         </SuspenseError>
-      </section>
+        <div>
+          <SuspenseError loading={<SidebarSkeleton />} error={<>error was happen in loading</>}>
+            <Sidebar />
+          </SuspenseError>
+        </div>
+        <div className="w-full p-8 max-screen-auto mt-8 bg-[#F6FBFA]">
+          <SuspenseError loading={<Spinner />} error={<>error was happen in loading</>}>
+            <Outlet />
+          </SuspenseError>
+        </div>
+      </div>
     </div>
   );
 };
