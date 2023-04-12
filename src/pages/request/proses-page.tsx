@@ -56,7 +56,7 @@ const ProsesPage: FC = (): ReactElement => {
           <div className="w-[40%]">
             <select
               id="category"
-              className="px-4 font-semibold bg-neutral-200 border border-gray-300 text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
+              className="cursor-pointer px-4 font-semibold bg-neutral-200 border border-gray-300 text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
             >
               <option selected>Semua</option>
               <option value="US">AI Optimation</option>
@@ -160,7 +160,7 @@ const ProsesPage: FC = (): ReactElement => {
                           : x.Skor === "Cukup Buruk"
                           ? "bg-warning-500"
                           : "bg-error-400"
-                      } text-white w-[110px] text-sm p-2 rounded-md`}
+                      } text-white w-[110px] text-sm p-2 rounded-md cursor-default`}
                     >
                       {x.Skor}
                     </button>

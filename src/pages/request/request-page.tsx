@@ -98,7 +98,7 @@ const PermintaanPage: FC = (): ReactElement => {
           Anda dapat memilih satu atau lebih fitur
         </p>
       </div>
-      <div className="grid lg:gap-5 md:gap-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-2 gap-1 my-3 w-full">
+      <div className="grid lg:gap-5 md:gap-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-1 my-3 w-full">
         {RequestSubMenu.map((item, index) => {
           return (
             <Card
