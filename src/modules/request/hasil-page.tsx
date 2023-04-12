@@ -1,7 +1,23 @@
 import { ReactElement, FC, useState } from "react";
 import Button from "@/components/atoms/button";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./index.css";
 
 const HasilPage: FC = (): ReactElement => {
+  const showToastMessage = (): any => {
+    toast(
+      <div className="flex flex-row gap gap-x-2 items-center">
+        <img src="../../../public/assets/checklist.svg" alt="icon" />
+        <p>Detail Report.pdf berhasil terunduh</p>
+      </div>,
+      {
+        autoClose: 1000,
+        position: toast.POSITION.TOP_RIGHT,
+        className: "toast-message",
+      },
+    );
+  };
   const [isActive, setisActive] = useState("1");
   const table = [
     {
@@ -43,14 +59,14 @@ const HasilPage: FC = (): ReactElement => {
   ];
   return (
     <div className="relative">
-      <div className="mt-9 gap gap-x-3 flex lg:flex-row flex-col h-[40px] items-center">
+      <div className="mt-9 gap flex lg:flex-row flex-col h-[40px] items-center">
         <p className="font-bold text-[#444444] text-lg ml-8 w-[60%]">Permintaan Hari ini</p>
         <div className="w-full">
           <div className="flex flex-row gap gap-x-3 w-full mt-4 lg:mt-0">
             <div className="w-[40%]">
               <select
                 id="category"
-                className="px-4 font-semibold bg-neutral-200 border border-gray-300 text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
+                className="cursor-pointer px-4 font-semibold bg-neutral-200 border border-gray-300 text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
               >
                 <option selected>Semua</option>
                 <option value="US">AI Optimation</option>
@@ -94,8 +110,11 @@ const HasilPage: FC = (): ReactElement => {
           </div>
         </div>
       </div>
-      <div className="my-4 flex justify-end ">
-        <div className="w-[156px] h-10 text-sm cursor-pointer lg:mt-0 mt-10 shadow-md hover:bg-neutral-400 rounded-md flex items-center justify-center font-semibold text-neutral-800">
+      <div className=" my-4 flex justify-end">
+        <div
+          onClick={showToastMessage}
+          className="w-[156px] h-10 text-sm cursor-pointer lg:mt-0 md:mt-20 mt-20 shadow-md hover:bg-neutral-400 rounded-md flex items-center justify-center font-semibold text-neutral-800"
+        >
           <div className="w-[20%] flex justify-center items-center">
             <svg
               width="21"
@@ -198,7 +217,7 @@ const HasilPage: FC = (): ReactElement => {
                           : x.Skor === "Cukup Buruk"
                           ? "bg-warning-500"
                           : "bg-error-400"
-                      } text-white w-[100px] text-sm p-2 rounded-md`}
+                      } text-white w-[100px] text-sm p-2 rounded-md cursor-default`}
                     >
                       {x.Skor}
                     </button>
@@ -299,6 +318,7 @@ const HasilPage: FC = (): ReactElement => {
           </svg>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
