@@ -203,10 +203,12 @@ const HasilPage: FC = (): ReactElement => {
                       {x.Skor}
                     </button>
                   </td>
-                  <td className="w-full pl-6 py-3 text-blue-600">
+                  <td className="w-full pl-6 py-3 text-[#3D628D]">
                     <a href="">
                       <img src="/assets/pdf.svg" alt="logo" />
-                      <p className="text-xs">Lihat PDF</p>
+                      <p className="text-xs">
+                        <u>Lihat PDF</u>
+                      </p>
                     </a>
                   </td>
                 </tr>
