@@ -102,12 +102,12 @@ const PermintaanPage: FC = (): ReactElement => {
         {RequestSubMenu.map((item, index) => {
           return (
             <Card
-              className="hover:cursor-pointer w-[130px] xl:w-[230px] xl:h-[107px] lg:w-[230px] md:w-[240px] lg:h-[107px] relative shadow-md hover:shadow-xl py-8 px-4"
+              className="hover:cursor-pointer w-full xl:h-[107px] lg:h-[107px] relative shadow-md hover:shadow-xl py-8 px-4"
               key={index}
             >
               <div className="flex flex-row w-full h-full space-x-[10px]">
                 <div>
-                  <img src={AiAutomation} alt="icon" className="w-16 hidden md:flex" />
+                  <img src={AiAutomation} alt="icon" className="w-16 hidden sm:flex" />
                 </div>
 
                 <div className="flex-col w-full space-y-1">

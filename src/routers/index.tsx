@@ -8,7 +8,7 @@ import SuspenseError from "@/modules/common/suspense-error";
 import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
 import { LoadingHome } from "@/modules/home/loading-home";
 import { LoadingUser } from "@/modules/user/loading-user";
-import { LoadingReport } from "@/modules/report/loading-report";
+import LoadingRequest from "@/modules/request/loading-request";
 import { AuthSkeleton } from "@/layouts/auth/auth-skeleton";
 import { ErrorHome } from "@/modules/home/error-home";
 import { ErrorLogin } from "@/modules/auth/login/error-login";
@@ -61,16 +61,10 @@ export const routes = createBrowserRouter([
       {
         path: "/permintaan",
         element: (
-          <SuspenseError loading={<LoadingReport />} error={"..ini error"}>
+          <SuspenseError loading={<LoadingRequest />} error={"..ini error"}>
             <RequestPages />
           </SuspenseError>
         ),
-        children: [
-          {
-            path: "/permintaan/process",
-            element: <div></div>,
-          },
-        ],
       },
       {
         path: "/laporan",
