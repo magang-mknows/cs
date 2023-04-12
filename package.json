@@ -32,7 +32,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@tailwindcss/language-server": "^0.0.12",
+    "@tailwindcss/language-server": "^0.0.13",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.28",
