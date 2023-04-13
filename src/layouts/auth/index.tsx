@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 export const AuthLayout: FC = (): ReactElement => {
   return (
-    <section className="flex w-screen z-0 h-screen overflow-hidden bg-white">
+    <section className="flex lg:w-screen w-[500px] z-0 h-screen overflow-hidden bg-white">
       <div className="p-8 w-full">
         <img src="/assets/auth/logo.svg" alt="logo" width={160} />
       </div>

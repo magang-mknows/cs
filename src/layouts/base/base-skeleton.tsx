@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
-import SidebarSkeleton from "@/components/organisms/sidebar-skeleton";
-import { NavbarSkeleton } from "@/components/organisms/navbar-sekeleton";
+import SidebarSkeleton from "@/components/organisms/sidebar/sidebar-skeleton";
+import { NavbarSkeleton } from "@/components/organisms/navbar/navbar-sekeleton";
 
 export const BaseLayoutSkeleton: FC = (): ReactElement => {
   return (

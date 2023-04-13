@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import { createPortal } from "react-dom";
-import Card from "../molecules/card";
+import Card from "../../molecules/card";
 
 const Modal: FC = (): ReactElement => {
   return createPortal(
