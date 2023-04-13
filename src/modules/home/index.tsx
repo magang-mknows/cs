@@ -1,18 +1,27 @@
-import { FC, Fragment, lazy, ReactElement } from "react";
+import { FC, lazy, ReactElement } from "react";
 
 const CardSection = lazy(() => import("./history-request-section"));
 const SkorSection = lazy(() => import("./skor-section"));
 const RequestSection = lazy(() => import("./request-section"));
+const SalaryTrack = lazy(() => import("./salary-track"));
+const LocationTrack = lazy(() => import("./location-tract"));
 
 const HomeModules: FC = (): ReactElement => {
   return (
-    <Fragment>
+    <div className="flex flex-col">
       <CardSection />
-      <div className="flex flex-col lg:flex-row gap-2">
-        <RequestSection />
-        <SkorSection />
+      <div className="flex w-full flex-row gap-4">
+        <div className="flex-col">
+          <RequestSection />
+          <SkorSection />
+        </div>
+        <div>
+          <SkorSection />
+          <LocationTrack />
+          <SalaryTrack />
+        </div>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

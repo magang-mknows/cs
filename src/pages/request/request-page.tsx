@@ -1,7 +1,6 @@
 import { FC, ReactElement, useState } from "react";
 import Card from "@/components/molecules/card";
 import { Dialog } from "@headlessui/react";
-import AiAutomation from "../../../public/assets/request-page/ai-automation.svg";
 import Button from "@/components/atoms/button";
 
 const PermintaanPage: FC = (): ReactElement => {
@@ -9,64 +8,76 @@ const PermintaanPage: FC = (): ReactElement => {
 
   const RequestSubMenu = [
     {
+      icon: "/assets/dashboard/card1.svg",
       name: "Ai Automation",
       totalData: 500,
       totalNotifikasi: 1,
       img: "",
     },
     {
+      icon: "/assets/dashboard/card2.svg",
       name: "Ai Document Verification",
       totalData: 500,
       totalNotifikasi: 1,
     },
     {
+      icon: "/assets/dashboard/card3.svg",
       name: "Ai Location & Movement",
       totalData: 500,
       totalNotifikasi: 1,
     },
     {
+      icon: "/assets/dashboard/card4.svg",
       name: "AI Capacity & Earning Power",
       totalData: 500,
       totalNotifikasi: 3,
     },
     {
+      icon: "/assets/dashboard/card2.svg",
       name: "AI Capital Strength Analysis",
       totalData: 500,
       totalNotifikasi: 1,
     },
     {
+      icon: "/assets/dashboard/card1.svg",
       name: "Ai Automation",
       totalData: 500,
       totalNotifikasi: 4,
       img: "",
     },
     {
+      icon: "/assets/dashboard/card4.svg",
       name: "Ai Document Verification",
       totalData: 500,
       totalNotifikasi: 8,
     },
     {
+      icon: "/assets/dashboard/card3.svg",
       name: "Ai Location & Movement",
       totalData: 500,
       totalNotifikasi: 1,
     },
     {
+      icon: "/assets/dashboard/card4.svg",
       name: "AI Capacity & Earning Power",
       totalData: 500,
       totalNotifikasi: 4,
     },
     {
+      icon: "/assets/dashboard/card3.svg",
       name: "AI Capital Strength Analysis",
       totalData: 500,
       totalNotifikasi: 2,
     },
     {
+      icon: "/assets/dashboard/card2.svg",
       name: "Ai Automation",
       totalData: 500,
       totalNotifikasi: 1,
       img: "",
     },
     {
+      icon: "/assets/dashboard/card1.svg",
       name: "Ai Document Verification",
       totalData: 500,
       totalNotifikasi: 1,
@@ -107,7 +118,7 @@ const PermintaanPage: FC = (): ReactElement => {
             >
               <div className="flex flex-row w-full h-full space-x-[10px]">
                 <div>
-                  <img src={AiAutomation} alt="icon" className="w-16 hidden sm:flex" />
+                  <img src={item.icon} alt="icon" className="w-16 hidden md:flex" />
                 </div>
 
                 <div className="flex-col w-full space-y-1">

@@ -45,7 +45,7 @@ const CardSection: FC = (): ReactElement => {
               >
                 <div className="flex flex-row w-full h-full space-x-[10px] py-4">
                   <div>
-                    <img src={x.icon} alt="" className="w-16 " />
+                    <img src={x.icon} alt="icon" className="w-16 " />
                   </div>
 
                   <div className="flex-col w-full space-y-1">
