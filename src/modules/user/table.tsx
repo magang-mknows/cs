@@ -1,31 +1,5 @@
 import { FC, ReactElement } from "react";
-
-const table = [
-  {
-    No: 1,
-    Nik: 327000189266,
-    Nama: "Albert Maniqueen",
-    Berkas: "Lihat Detail",
-  },
-  {
-    No: 2,
-    Nik: 327012111,
-    Nama: "Putri Santoso",
-    Berkas: "Lihat Detail",
-  },
-  {
-    No: 3,
-    Nik: 327000189266,
-    Nama: "Albert Maniqueen",
-    Berkas: "Lihat Detail",
-  },
-  {
-    No: 4,
-    Nik: 327012111,
-    Nama: "Putri Santoso",
-    Berkas: "Lihat Detail",
-  },
-];
+import Data from "./data";
 
 const Table: FC = (): ReactElement => {
   return (
@@ -47,7 +21,7 @@ const Table: FC = (): ReactElement => {
             </th>
           </tr>
         </thead>
-        {table.map((x, i) => {
+        {Data.map((x, i) => {
           return (
             <tbody key={i}>
               <tr className="bg-white border-b ">

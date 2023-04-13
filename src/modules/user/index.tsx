@@ -3,6 +3,7 @@ import Button from "@/components/atoms/button";
 import Table from "./table";
 
 const UserModules: FC = (): ReactElement => {
+  const [search, setSearch] = useState("");
   const [date] = useState();
 
   return (
@@ -37,13 +38,17 @@ const UserModules: FC = (): ReactElement => {
               </div>
               <input
                 type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
                 id="simple-search"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
                 placeholder="Search NIM, NIK, Nama, No. Permintaan"
                 required
               />
             </div>
-            <Button className="px-8 py-2 bg-primary-400 mx-4">Search</Button>
+            <Button type="submit" className="px-8 py-2 bg-primary-400 mx-4">
+              Search
+            </Button>
             <button className="py-2 border bg-white text-primary-500 font-semibold w-full border-primary-400 rounded-md">
               + Tambah Data
             </button>

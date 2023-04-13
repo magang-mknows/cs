@@ -4,6 +4,7 @@ const CardSection = lazy(() => import("./history-request-section"));
 const SkorSection = lazy(() => import("./skor-section"));
 const RequestSection = lazy(() => import("./request-section"));
 const SalaryTrack = lazy(() => import("./salary-track"));
+const AgeTrack = lazy(() => import("./age-track"));
 const LocationTrack = lazy(() => import("./location-tract"));
 
 const HomeModules: FC = (): ReactElement => {
@@ -13,7 +14,7 @@ const HomeModules: FC = (): ReactElement => {
       <div className="flex w-full flex-row gap-4">
         <div className="flex-col">
           <RequestSection />
-          <SkorSection />
+          <AgeTrack />
         </div>
         <div>
           <SkorSection />
