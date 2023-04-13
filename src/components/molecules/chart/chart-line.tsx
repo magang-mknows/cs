@@ -37,16 +37,17 @@ const labels = [
   "Nov",
   "Des",
 ];
+
 const dataLine = {
   labels: labels,
   datasets: [
     {
       label: "",
-      data: [3.0, 2.5, 3.0, 4.0, 3.59, 0, 0, 0],
+      data: [100, 200, 220, 380, 430, 420, 400, 600, 780, 700, 850, 1000],
       borderColor: "white",
       tension: 0.1,
       fill: true,
-
+      backgroundColor: "#D0F9E3",
       hoverBackgroundColor: "#3b83f67e",
       hoverBorderColor: "#3b83f652",
       pointRadius: 6,

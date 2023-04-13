@@ -58,7 +58,7 @@ const TextField = <T extends FieldValues>({
       {props.label && (
         <label
           htmlFor={props.name}
-          className={`font-sans text-secondary-base ${
+          className={`font-sans text-black ${
             variant === "lg"
               ? "text-[18px]"
               : variant === "md"
