@@ -2,10 +2,10 @@ import { FC, ReactElement } from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "@/components/organisms/sidebar";
 import Navbar from "@/components/organisms/navbar";
-import { NavbarSkeleton } from "@/components/organisms/navbar-sekeleton";
-import SidebarSkeleton from "@/components/organisms/sidebar-skeleton";
+import { NavbarSkeleton } from "@/components/organisms/navbar/navbar-sekeleton";
+import SidebarSkeleton from "@/components/organisms/sidebar/sidebar-skeleton";
 import SuspenseError from "@/modules/common/suspense-error";
-import Spinner from "@/components/atoms/spinner";
+import Spinner from "@/components/atoms/loading/spinner";
 
 export const BaseLayout: FC = (): ReactElement => {
   return (

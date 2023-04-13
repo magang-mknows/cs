@@ -1,10 +1,10 @@
 import { FC, ReactElement } from "react";
-import ChartLine from "@/components/molecules/chart/chart-line";
+import ChartBar from "@/components/molecules/chart/chart-bar";
 
-const RequestSection: FC = (): ReactElement => {
+const SalaryTrack: FC = (): ReactElement => {
   return (
-    <section className="bg-white lg:h-[500px] h-[400px] w-full my-4">
-      <h1 className="text-xl font-semibold p-4">RIWAYAT PERMINTAAN</h1>
+    <section className="bg-white h-[500px]  w-full p-8 my-4">
+      <h1 className="text-xl font-semibold p-4">RIWAYAT NILAI SKOR</h1>
       <div className="flex justify-between py-4">
         <div className="flex px-4 text-sm gap-3 ">
           <button className="hover:border border-primary-500 text-primary-500 rounded-md p-2 ">
@@ -30,14 +30,8 @@ const RequestSection: FC = (): ReactElement => {
           </select>
         </div>
       </div>
-      <div className="flex px-8 justify-end gap-4">
-        <button className="border border-primary-500 rounded-full w-6 text-md">+</button>
-        <button className="border border-primary-500 rounded-full w-6 text-md">-</button>
-      </div>
-      <div className="py-8">
-        <ChartLine />
-      </div>
+      <ChartBar />
     </section>
   );
 };
-export default RequestSection;
+export default SalaryTrack;

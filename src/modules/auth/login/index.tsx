@@ -64,7 +64,7 @@ const LoginModules: FC = (): ReactElement => {
       />
       <CheckboxField name="remember" variant="md" control={control} label="Ingatkan Saya" />
       <div className="flex flex-col mt-6">
-        <Link to={"/"}>
+        <Link to={"/dashboard/home"}>
           <Button className="w-full p-3 rounded-md" disabled={!formState.isValid}>
             Masuk
           </Button>

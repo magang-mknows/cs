@@ -30,8 +30,8 @@ const table = [
 const Table: FC = (): ReactElement => {
   return (
     <div className="relative overflow-x-auto">
-      <table className="w-full text-sm border rounded-lg text-left text-gray-500 dark:text-gray-400">
-        <thead className="text-xs border text-gray-700 uppercase bg-[#F6FBFA] dark:bg-gray-700 dark:text-gray-400">
+      <table className="w-full text-sm border rounded-lg text-left text-gray-500 ">
+        <thead className="text-xs border text-gray-700 uppercase bg-[#F6FBFA]  ">
           <tr>
             <th scope="col" className="px-6 py-3">
               No.

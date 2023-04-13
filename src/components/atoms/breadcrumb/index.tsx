@@ -1,5 +1,5 @@
 import { FC, ReactElement } from "react";
-import { BreadCrumbProps } from "./types";
+import { BreadCrumbProps } from "../types";
 import { Link } from "react-router-dom";
 
 const BreadCrumb: FC<BreadCrumbProps> = ({ items }): ReactElement => {

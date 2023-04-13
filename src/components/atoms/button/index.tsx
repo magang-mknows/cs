@@ -1,7 +1,7 @@
 import { FC, Fragment, ReactElement, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
-import { IButtonProps } from "./types";
+import { IButtonProps } from "../types";
 
 const SpinAnimation = (): ReactElement => {
   return (

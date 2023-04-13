@@ -23,12 +23,10 @@ const ChartDoughnut: FC = (): ReactElement => {
   };
 
   const options = {
-    plugins: {},
-
     cutout: "80%",
     radius: "50%",
   };
-  return <Doughnut data={data} options={options} />;
+  return <Doughnut data={data} options={options} style={{ width: "100%" }} />;
 };
 
 export default ChartDoughnut;
