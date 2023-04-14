@@ -7,14 +7,14 @@ import SuspenseError from "@/modules/common/suspense-error";
 
 import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
 import { LoadingHome } from "@/modules/home/loading-home";
-import { LoadingUser } from "@/modules/user/loading-user";
-import LoadingRequest from "@/modules/request/loading-request";
+import { LoadingUser } from "@/modules/user/loading";
+import LoadingRequest from "@/modules/request/loading";
 import { AuthSkeleton } from "@/layouts/auth/auth-skeleton";
 import { ErrorHome } from "@/modules/home/error-home";
 import { ErrorModules } from "@/modules/common/errorpage";
 import { ErrorLogin } from "@/modules/auth/login/error-login";
 import ReportPages from "@/pages/report";
-import { LoadingReport } from "@/modules/report/loading-report";
+import { LoadingReport } from "@/modules/report/loading";
 
 const LoginPages = lazy(() => import("@/pages/auth/login"));
 const HomePages = lazy(() => import("@/pages/home"));

@@ -34,7 +34,7 @@ const data = {
   ],
   datasets: [
     {
-      label: "Sales",
+      labels: "salary",
       backgroundColor: "rgba(27, 153, 132, 0.61)",
       borderColor: "rgba(0,0,0,1)",
       borderWidth: 1,

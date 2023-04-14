@@ -4,7 +4,7 @@ import ChartBar from "@/components/molecules/chart/chart-bar";
 const SalaryTrack: FC = (): ReactElement => {
   return (
     <section className="bg-white h-[500px]  w-full p-8 my-4">
-      <h1 className="text-xl font-semibold p-4">RIWAYAT NILAI SKOR</h1>
+      <h1 className="text-xl font-semibold p-4">TRACK PENDAPATAN</h1>
       <div className="flex justify-between py-4">
         <div className="flex px-4 text-sm gap-3 ">
           <button className="hover:border border-primary-500 text-primary-500 rounded-md p-2 ">
