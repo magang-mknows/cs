@@ -1,18 +1,18 @@
 import { FC, Fragment, ReactElement, useState } from "react";
 import SuspenseError from "@/modules/common/suspense-error";
-import { ErrorHome } from "@/modules/home/error-home";
-import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
+import { ErrorRequest } from "@/modules/request/error";
+import LoadingRequest from "@/modules/request/loading";
 import Card from "@/components/molecules/card";
 import { Tab } from "@headlessui/react";
 
-import PermintaanPage from "./request-page";
-import ProsesPage from "./proses-page";
-import HasilPage from "@/modules/request/hasil-page";
+import PermintaanPage from "@/modules/request/request";
+import ProsesPage from "@/modules/request/proses";
+import HasilPage from "@/modules/request/hasil";
 
 const RequestPages: FC = (): ReactElement => {
   const [active, setActive] = useState("permintaan");
   return (
-    <SuspenseError error={<ErrorHome />} loading={<BaseLayoutSkeleton />}>
+    <SuspenseError error={<ErrorRequest />} loading={<LoadingRequest />}>
       <Tab.Group>
         <section className="w-full flex h-fit relative pt-11 overflow-hidden justify-center lg:justify-end lg:pr-4">
           <Card className="w-full h-fit rounded-lg bg-white">
