@@ -8,7 +8,7 @@ import SuspenseError from "@/modules/common/suspense-error";
 import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
 import { LoadingHome } from "@/modules/home/loading-home";
 import { LoadingUser } from "@/modules/user/loading";
-import LoadingRequest from "@/modules/request/loading-request";
+import LoadingRequest from "@/modules/request/loading";
 import { AuthSkeleton } from "@/layouts/auth/auth-skeleton";
 import { ErrorHome } from "@/modules/home/error-home";
 import { ErrorModules } from "@/modules/common/errorpage";
