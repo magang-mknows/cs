@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, ChangeEventHandler } from "react";
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
@@ -31,4 +31,9 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export type BreadCrumbProps = {
   items: CrumbItem[];
+};
+
+export type SearchProps = {
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  value: string;
 };
