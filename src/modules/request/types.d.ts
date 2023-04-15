@@ -13,6 +13,7 @@ export type TResultDataDummy = {
   nama: string;
   tggl_permintaan: string;
   tggl_selesai: string;
+  kendala_proses: string;
   skor: string;
   detail: string;
 };

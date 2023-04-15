@@ -1,5 +1,4 @@
 import { ReactElement, FC, useState } from "react";
-import Button from "@/components/atoms/button";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useResultData, useResultQuery } from "./hooks";
@@ -70,7 +69,6 @@ const HasilPage: FC = (): ReactElement => {
                     required
                   />
                 </div>
-                <Button className="px-8 py-2 bg-primary-400 mx-4 md:w-24 w-12">Search</Button>
               </form>
             </div>
           </div>
