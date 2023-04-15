@@ -1,5 +1,5 @@
 import Button from "@/components/atoms/button";
-import { CardProps } from "@/components/type";
+import { CardProps } from "@/components/types";
 import { FC, ReactElement, Fragment } from "react";
 import { Link } from "react-router-dom";
 

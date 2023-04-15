@@ -3,13 +3,12 @@ import Button from "@/components/atoms/button";
 import { Dialog } from "@headlessui/react";
 import Card from "@/components/molecules/card";
 import { useResultData, useResultQuery } from "./hooks";
-import IconSearch from "@/components/atoms/icons/ic-search";
+import Search from "@/components/atoms/search";
+import Pagination from "@/components/atoms/pagination";
 
 const ProsesPage: FC = (): ReactElement => {
-  const [isActive, setisActive] = useState("1");
   const [isOpen, setisOpen] = useState(false);
   const { setResultQuery, getResultQuery } = useResultQuery();
-  const [search] = useState("");
   const { getResultData } = useResultData();
 
   return (
@@ -30,31 +29,7 @@ const ProsesPage: FC = (): ReactElement => {
             </select>
           </div>
           <div className="w-full">
-            <form
-              onSubmit={(event) => {
-                event.preventDefault();
-                setResultQuery(search);
-              }}
-              className="flex items-center"
-            >
-              <label htmlFor="simple-search" className="sr-only">
-                Search
-              </label>
-              <div className="relative w-full ">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <IconSearch />
-                </div>
-                <input
-                  type="text"
-                  id="simple-search"
-                  value={getResultQuery}
-                  onChange={(e) => setResultQuery(e.target.value)}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-                  placeholder="Search NIM, NIK, Nama, No. Permintaan"
-                  required
-                />
-              </div>
-            </form>
+            <Search value={getResultQuery} onChange={(e) => setResultQuery(e.target.value)} />
           </div>
         </div>
       </div>
@@ -141,77 +116,8 @@ const ProsesPage: FC = (): ReactElement => {
         </div>
       </div>
 
-      {/* pagination */}
-      <div className="flex w-full justify-center items-center gap-x-2 text-neutral-400 my-10">
-        <div className="w-9 h-9 px-3 border flex items-center rounded-md cursor-pointer">
-          <svg
-            width="8"
-            height="12"
-            viewBox="0 0 8 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0.72 6.71985C0.579308 6.57934 0.500175 6.3887 0.5 6.18985V5.80985C0.502304 5.61144 0.581116 5.42157 0.72 5.27985L5.86 0.149852C5.95388 0.055196 6.08168 0.00195312 6.215 0.00195312C6.34832 0.00195312 6.47612 0.055196 6.57 0.149852L7.28 0.859852C7.37406 0.952016 7.42707 1.07816 7.42707 1.20985C7.42707 1.34154 7.37406 1.46769 7.28 1.55985L2.83 5.99985L7.28 10.4399C7.37466 10.5337 7.4279 10.6615 7.4279 10.7949C7.4279 10.9282 7.37466 11.056 7.28 11.1499L6.57 11.8499C6.47612 11.9445 6.34832 11.9978 6.215 11.9978C6.08168 11.9978 5.95388 11.9445 5.86 11.8499L0.72 6.71985Z"
-              fill="#E5E5E5"
-            />
-          </svg>
-        </div>
-        <div
-          className={`${
-            isActive == "1" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-          } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-          onClick={() => setisActive("1")}
-        >
-          1
-        </div>
-        <div
-          className={`${
-            isActive == "2" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-          } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-          onClick={() => setisActive("2")}
-        >
-          2
-        </div>
-        <div
-          className={`${
-            isActive == "3" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-          } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-          onClick={() => setisActive("3")}
-        >
-          3
-        </div>
-        <div
-          className={`${
-            isActive == "4" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-          } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-          onClick={() => setisActive("4")}
-        >
-          4
-        </div>
-        <div
-          className={`${
-            isActive == "5" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-          } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-          onClick={() => setisActive("5")}
-        >
-          5
-        </div>
-        <div className="w-9 h-9 px-3 border flex items-center rounded-md cursor-pointer">
-          <svg
-            width="8"
-            height="12"
-            viewBox="0 0 8 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M7.28 6.71985C7.42069 6.57934 7.49982 6.3887 7.5 6.18985V5.80985C7.4977 5.61144 7.41888 5.42157 7.28 5.27985L2.14 0.149852C2.04612 0.055196 1.91832 0.00195312 1.785 0.00195312C1.65168 0.00195312 1.52388 0.055196 1.43 0.149852L0.72 0.859852C0.625936 0.952016 0.572928 1.07816 0.572928 1.20985C0.572928 1.34154 0.625936 1.46769 0.72 1.55985L5.17 5.99985L0.72 10.4399C0.625343 10.5337 0.572101 10.6615 0.572101 10.7949C0.572101 10.9282 0.625343 11.056 0.72 11.1499L1.43 11.8499C1.52388 11.9445 1.65168 11.9978 1.785 11.9978C1.91832 11.9978 2.04612 11.9445 2.14 11.8499L7.28 6.71985Z"
-              fill="#4AC1A2"
-            />
-          </svg>
-        </div>
-      </div>
+      <Pagination />
+
       <Dialog
         open={isOpen}
         onClose={() => setisOpen(false)}

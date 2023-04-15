@@ -1,16 +1,14 @@
-import { ReactElement, FC, useState } from "react";
+import { ReactElement, FC } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useResultData, useResultQuery } from "./hooks";
-import IconPrev from "@/components/atoms/icons/ic-prev";
-import IconNext from "@/components/atoms/icons/ic-next";
-import IconSearch from "@/components/atoms/icons/ic-search";
+import Pagination from "@/components/atoms/pagination";
+import Search from "@/components/atoms/search";
 import "./index.css";
 
 const HasilPage: FC = (): ReactElement => {
   const { getResultData } = useResultData();
   const { setResultQuery, getResultQuery } = useResultQuery();
-  const [search] = useState("");
   const showToastMessage = (): any => {
     toast(
       <div className="flex flex-row gap gap-x-2 items-center">
@@ -24,7 +22,6 @@ const HasilPage: FC = (): ReactElement => {
       },
     );
   };
-  const [isActive, setisActive] = useState("1");
 
   return (
     <div className="relative">
@@ -45,31 +42,7 @@ const HasilPage: FC = (): ReactElement => {
               </select>
             </div>
             <div className="w-full">
-              <form
-                onSubmit={(event) => {
-                  event.preventDefault();
-                  setResultQuery(search);
-                }}
-                className="flex items-center"
-              >
-                <label htmlFor="simple-search" className="sr-only">
-                  Search
-                </label>
-                <div className="relative w-full ">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <IconSearch />
-                  </div>
-                  <input
-                    type="text"
-                    id="simple-search"
-                    value={getResultQuery}
-                    onChange={(e) => setResultQuery(e.target.value)}
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-                    placeholder="Search NIM, NIK, Nama, No. Permintaan"
-                    required
-                  />
-                </div>
-              </form>
+              <Search value={getResultQuery} onChange={(e) => setResultQuery(e.target.value)} />
             </div>
           </div>
         </div>
@@ -211,55 +184,7 @@ const HasilPage: FC = (): ReactElement => {
         </div>
       </div>
 
-      {/* pagination */}
-      <div className="flex w-full justify-center items-center gap-x-2 text-neutral-400 my-10">
-        <div className="w-9 h-9 px-3 border flex items-center rounded-md cursor-pointer">
-          <IconPrev />
-        </div>
-        <div
-          className={`${
-            isActive == "1" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-          } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-          onClick={() => setisActive("1")}
-        >
-          1
-        </div>
-        <div
-          className={`${
-            isActive == "2" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-          } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-          onClick={() => setisActive("2")}
-        >
-          2
-        </div>
-        <div
-          className={`${
-            isActive == "3" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-          } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-          onClick={() => setisActive("3")}
-        >
-          3
-        </div>
-        <div
-          className={`${
-            isActive == "4" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-          } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-          onClick={() => setisActive("4")}
-        >
-          4
-        </div>
-        <div
-          className={`${
-            isActive == "5" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-          } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-          onClick={() => setisActive("5")}
-        >
-          5
-        </div>
-        <div className="w-9 h-9 px-3 border flex items-center rounded-md cursor-pointer">
-          <IconNext />
-        </div>
-      </div>
+      <Pagination />
       <ToastContainer />
     </div>
   );
