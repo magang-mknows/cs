@@ -1,6 +1,6 @@
 import { useRecoilValue } from "recoil";
 import { requestDummyData } from "./store";
-import { TRequestDataResponse } from "./type";
+import { TRequestDataResponse } from "./types";
 
 export const useRequestData = (): TRequestDataResponse => {
   const get = useRecoilValue(requestDummyData);

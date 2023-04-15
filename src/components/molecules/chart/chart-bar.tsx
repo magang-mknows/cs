@@ -34,11 +34,17 @@ const data = {
   ],
   datasets: [
     {
-      labels: "salary",
-      backgroundColor: "rgba(27, 153, 132, 0.61)",
-      borderColor: "rgba(0,0,0,1)",
+      label: "salary",
+      backgroundColor: (context: any) => {
+        const ctx = context.chart.ctx;
+        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+        gradient.addColorStop(0, "#1B9984");
+        gradient.addColorStop(1, "#D0F9E3");
+        return gradient;
+      },
+      borderColor: "white",
       borderWidth: 1,
-      data: [65, 59, 80, 81, 56, 55, 40, 80],
+      data: [320, 270, 320, 400, 420, 500, 440, 240],
     },
   ],
 };

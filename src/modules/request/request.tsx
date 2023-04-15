@@ -2,115 +2,23 @@ import { FC, ReactElement, useState } from "react";
 import Card from "@/components/molecules/card";
 import { Dialog } from "@headlessui/react";
 import Button from "@/components/atoms/button";
+import { useRequestData } from "./hooks";
+import IconWarning from "@/components/atoms/icons/ic-warning";
 
 const PermintaanPage: FC = (): ReactElement => {
+  const { getRequestData } = useRequestData();
   const [isOpen, setisOpen] = useState(false);
 
-  const RequestSubMenu = [
-    {
-      icon: "/assets/dashboard/card1.svg",
-      name: "Ai Automation",
-      totalData: 500,
-      totalNotifikasi: 1,
-      img: "",
-    },
-    {
-      icon: "/assets/dashboard/card2.svg",
-      name: "Ai Document Verification",
-      totalData: 500,
-      totalNotifikasi: 1,
-    },
-    {
-      icon: "/assets/dashboard/card3.svg",
-      name: "Ai Location & Movement",
-      totalData: 500,
-      totalNotifikasi: 1,
-    },
-    {
-      icon: "/assets/dashboard/card4.svg",
-      name: "AI Capacity & Earning Power",
-      totalData: 500,
-      totalNotifikasi: 3,
-    },
-    {
-      icon: "/assets/dashboard/card2.svg",
-      name: "AI Capital Strength Analysis",
-      totalData: 500,
-      totalNotifikasi: 1,
-    },
-    {
-      icon: "/assets/dashboard/card1.svg",
-      name: "Ai Automation",
-      totalData: 500,
-      totalNotifikasi: 4,
-      img: "",
-    },
-    {
-      icon: "/assets/dashboard/card4.svg",
-      name: "Ai Document Verification",
-      totalData: 500,
-      totalNotifikasi: 8,
-    },
-    {
-      icon: "/assets/dashboard/card3.svg",
-      name: "Ai Location & Movement",
-      totalData: 500,
-      totalNotifikasi: 1,
-    },
-    {
-      icon: "/assets/dashboard/card4.svg",
-      name: "AI Capacity & Earning Power",
-      totalData: 500,
-      totalNotifikasi: 4,
-    },
-    {
-      icon: "/assets/dashboard/card3.svg",
-      name: "AI Capital Strength Analysis",
-      totalData: 500,
-      totalNotifikasi: 2,
-    },
-    {
-      icon: "/assets/dashboard/card2.svg",
-      name: "Ai Automation",
-      totalData: 500,
-      totalNotifikasi: 1,
-      img: "",
-    },
-    {
-      icon: "/assets/dashboard/card1.svg",
-      name: "Ai Document Verification",
-      totalData: 500,
-      totalNotifikasi: 1,
-    },
-  ];
   return (
     <div>
       <div className="flex flex-row gap gap-x-2 py-2 items-center w-full">
-        <svg
-          width="26"
-          height="26"
-          viewBox="0 0 26 26"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M20.9494 12.8635C20.9605 17.2808 17.4168 20.8854 13 20.9495C10.9062 20.981 8.88701 20.1727 7.39334 18.7051C5.89967 17.2375 5.05594 15.2329 5.05057 13.1388C5.03823 8.72073 8.58232 5.11479 13 5.05068C15.0941 5.01937 17.1135 5.82804 18.6072 7.29606C20.1009 8.76409 20.9444 10.7692 20.9494 12.8635Z"
-            stroke="#737373"
-          />
-          <path d="M13 14.4489V9.39014" stroke="#737373" />
-          <path
-            d="M12.9935 15.8945C12.9457 15.8953 12.9003 15.9153 12.8675 15.95C12.8347 15.9846 12.8173 16.0311 12.8193 16.0788C12.8228 16.1774 12.9035 16.2555 13.0021 16.2559C13.0498 16.2549 13.0951 16.2349 13.1278 16.2002C13.1606 16.1656 13.1781 16.1192 13.1763 16.0716C13.1733 15.9753 13.0962 15.8979 13 15.8945H12.9964"
-            stroke="#737373"
-          />
-        </svg>
+        <IconWarning />
         <p className="text-xs md:text-sm font-normal text-neutral-500">
           Anda dapat memilih satu atau lebih fitur
         </p>
       </div>
       <div className="grid lg:gap-5 md:gap-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-1 my-3 w-full">
-        {RequestSubMenu.map((item, index) => {
+        {getRequestData.map((item, index) => {
           return (
             <Card
               className="hover:cursor-pointer w-full xl:h-[107px] lg:h-[107px] relative shadow-md hover:shadow-xl py-8 px-4"

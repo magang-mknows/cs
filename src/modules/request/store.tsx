@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { TRequestDummyData } from "./type";
+import { TRequestDummyData } from "./types";
 
 export const requestDummyData = atom<TRequestDummyData[]>({
   key: "request-dummy-data",
