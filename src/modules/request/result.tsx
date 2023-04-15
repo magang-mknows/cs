@@ -2,11 +2,16 @@ import { ReactElement, FC, useState } from "react";
 import Button from "@/components/atoms/button";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./index.css";
+import { useResultData, useResultQuery } from "./hooks";
 import IconPrev from "@/components/atoms/icons/ic-prev";
 import IconNext from "@/components/atoms/icons/ic-next";
+import IconSearch from "@/components/atoms/icons/ic-search";
+import "./index.css";
 
 const HasilPage: FC = (): ReactElement => {
+  const { getResultData } = useResultData();
+  const { setResultQuery, getResultQuery } = useResultQuery();
+  const [search] = useState("");
   const showToastMessage = (): any => {
     toast(
       <div className="flex flex-row gap gap-x-2 items-center">
@@ -21,44 +26,7 @@ const HasilPage: FC = (): ReactElement => {
     );
   };
   const [isActive, setisActive] = useState("1");
-  const table = [
-    {
-      No: 10002345,
-      Nik: 327000189266,
-      Nama: "Albert Maniqueen",
-      Tggl_permintaan: "11/2/2021",
-      Tggl_selesai: "11/2/2021",
-      Skor: "Sangat Baik",
-      Detail: "Lihat Detail",
-    },
-    {
-      No: 10002345,
-      Nik: 327000189266,
-      Nama: "Albert Maniqueen",
-      Tggl_permintaan: "11/2/2021",
-      Tggl_selesai: "11/2/2021",
-      Skor: "Cukup Buruk",
-      Detail: "Lihat Detail",
-    },
-    {
-      No: 10002345,
-      Nik: 327000189266,
-      Nama: "Albert Maniqueen",
-      Tggl_permintaan: "11/2/2021",
-      Tggl_selesai: "11/2/2021",
-      Skor: "Sangat Baik",
-      Detail: "Lihat Detail",
-    },
-    {
-      No: 10002345,
-      Nik: 327000189266,
-      Nama: "Albert Maniqueen",
-      Tggl_permintaan: "11/2/2021",
-      Tggl_selesai: "11/2/2021",
-      Skor: "Sangat Buruk",
-      Detail: "Lihat Detail",
-    },
-  ];
+
   return (
     <div className="relative">
       <div className="mt-9 gap flex lg:flex-row flex-col h-[40px] items-center">
@@ -78,29 +46,25 @@ const HasilPage: FC = (): ReactElement => {
               </select>
             </div>
             <div className="w-full">
-              <form className="flex items-center">
+              <form
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  setResultQuery(search);
+                }}
+                className="flex items-center"
+              >
                 <label htmlFor="simple-search" className="sr-only">
                   Search
                 </label>
                 <div className="relative w-full ">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg
-                      aria-hidden="true"
-                      className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
+                    <IconSearch />
                   </div>
                   <input
                     type="text"
                     id="simple-search"
+                    value={getResultQuery}
+                    onChange={(e) => setResultQuery(e.target.value)}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
                     placeholder="Search NIM, NIK, Nama, No. Permintaan"
                     required
@@ -200,28 +164,28 @@ const HasilPage: FC = (): ReactElement => {
               </th>
             </tr>
           </thead>
-          {table.map((x, i) => {
+          {getResultData.map((item, key) => {
             return (
-              <tbody key={i}>
+              <tbody key={key}>
                 <tr className="bg-white border-b dark:bg-[#ffff] ">
-                  <td className="px-10 py-3 text-[#262626] ">{x.No}</td>
-                  <td className="px-6 py-3 text-[#262626]">{x.Nik}</td>
+                  <td className="px-10 py-3 text-[#262626] ">{item.no}</td>
+                  <td className="px-6 py-3 text-[#262626]">{item.nik}</td>
                   <td className="px-6 py-3 font-semibold text-[#262626] flex justify-center">
-                    {x.Nama}
+                    {item.nama}
                   </td>
-                  <td className="px-6 py-3">{x.Tggl_permintaan}</td>
-                  <td className="px-6 py-3">{x.Tggl_selesai}</td>
+                  <td className="px-6 py-3">{item.tggl_permintaan}</td>
+                  <td className="px-6 py-3">{item.tggl_selesai}</td>
                   <td className="px-6 py-3 bg-green-400">
                     <button
                       className={` ${
-                        x.Skor === "Sangat Baik"
+                        item.skor === "Sangat Baik"
                           ? "bg-success-400"
-                          : x.Skor === "Cukup Buruk"
+                          : item.skor === "Cukup Buruk"
                           ? "bg-warning-500"
                           : "bg-error-400"
-                      } text-white w-[100px] text-sm p-2 rounded-md cursor-default`}
+                      } text-white w-[100px] text-sm py-2 rounded-md cursor-default`}
                     >
-                      {x.Skor}
+                      {item.skor}
                     </button>
                   </td>
                   <td className="w-full pl-6 py-3 text-[#3D628D]">

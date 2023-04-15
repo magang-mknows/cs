@@ -8,10 +8,10 @@ const CardSection: FC = (): ReactElement => {
   return (
     <section className="flex flex-col px-8 lg:px-2 w-full h-auto">
       <h1 className="text-xl font-semibold lg:p-4 p-2">RIWAYAT PERMINTAAN</h1>
-      <div className="grid lg:grid-cols-4 grid-cols-1 gap-x-3 gap-y-4">
+      <div className="grid lg:grid-cols-4 grid-cols-1 gap-x-3 gap-y-4 max-w-scren">
         {getCardData.map((x, i) => {
           return (
-            <div key={i} className="grid grid-cols-4">
+            <div key={i} className="grid grid-cols-4 max-w-scren">
               <Card
                 hasButton={true}
                 buttonText="Lihat Detail"
