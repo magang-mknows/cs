@@ -3,13 +3,12 @@ import Button from "@/components/atoms/button";
 import { Dialog } from "@headlessui/react";
 import Card from "@/components/molecules/card";
 import { useResultData, useResultQuery } from "./hooks";
-import IconSearch from "@/components/atoms/icons/ic-search";
+import Search from "@/components/atoms/search";
 
 const ProsesPage: FC = (): ReactElement => {
   const [isActive, setisActive] = useState("1");
   const [isOpen, setisOpen] = useState(false);
   const { setResultQuery, getResultQuery } = useResultQuery();
-  const [search] = useState("");
   const { getResultData } = useResultData();
 
   return (
@@ -30,31 +29,7 @@ const ProsesPage: FC = (): ReactElement => {
             </select>
           </div>
           <div className="w-full">
-            <form
-              onSubmit={(event) => {
-                event.preventDefault();
-                setResultQuery(search);
-              }}
-              className="flex items-center"
-            >
-              <label htmlFor="simple-search" className="sr-only">
-                Search
-              </label>
-              <div className="relative w-full ">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <IconSearch />
-                </div>
-                <input
-                  type="text"
-                  id="simple-search"
-                  value={getResultQuery}
-                  onChange={(e) => setResultQuery(e.target.value)}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-                  placeholder="Search NIM, NIK, Nama, No. Permintaan"
-                  required
-                />
-              </div>
-            </form>
+            <Search value={getResultQuery} onChange={(e) => setResultQuery(e.target.value)} />
           </div>
         </div>
       </div>
