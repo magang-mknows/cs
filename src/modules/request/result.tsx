@@ -1,14 +1,20 @@
 import { ReactElement, FC, useState } from "react";
-import Button from "@/components/atoms/button";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useResultData, useResultQuery } from "./hooks";
+import IconPrev from "@/components/atoms/icons/ic-prev";
+import IconNext from "@/components/atoms/icons/ic-next";
+import IconSearch from "@/components/atoms/icons/ic-search";
 import "./index.css";
 
 const HasilPage: FC = (): ReactElement => {
+  const { getResultData } = useResultData();
+  const { setResultQuery, getResultQuery } = useResultQuery();
+  const [search] = useState("");
   const showToastMessage = (): any => {
     toast(
       <div className="flex flex-row gap gap-x-2 items-center">
-        <img src="../../../public/assets/checklist.svg" alt="icon" />
+        <img src="/assets/checklist.svg" alt="icon" />
         <p>Detail Report.pdf berhasil terunduh</p>
       </div>,
       {
@@ -19,44 +25,7 @@ const HasilPage: FC = (): ReactElement => {
     );
   };
   const [isActive, setisActive] = useState("1");
-  const table = [
-    {
-      No: 10002345,
-      Nik: 327000189266,
-      Nama: "Albert Maniqueen",
-      Tggl_permintaan: "11/2/2021",
-      Tggl_selesai: "11/2/2021",
-      Skor: "Sangat Baik",
-      Detail: "Lihat Detail",
-    },
-    {
-      No: 10002345,
-      Nik: 327000189266,
-      Nama: "Albert Maniqueen",
-      Tggl_permintaan: "11/2/2021",
-      Tggl_selesai: "11/2/2021",
-      Skor: "Cukup Buruk",
-      Detail: "Lihat Detail",
-    },
-    {
-      No: 10002345,
-      Nik: 327000189266,
-      Nama: "Albert Maniqueen",
-      Tggl_permintaan: "11/2/2021",
-      Tggl_selesai: "11/2/2021",
-      Skor: "Sangat Baik",
-      Detail: "Lihat Detail",
-    },
-    {
-      No: 10002345,
-      Nik: 327000189266,
-      Nama: "Albert Maniqueen",
-      Tggl_permintaan: "11/2/2021",
-      Tggl_selesai: "11/2/2021",
-      Skor: "Sangat Buruk",
-      Detail: "Lihat Detail",
-    },
-  ];
+
   return (
     <div className="relative">
       <div className="mt-9 gap flex lg:flex-row flex-col h-[40px] items-center">
@@ -76,35 +45,30 @@ const HasilPage: FC = (): ReactElement => {
               </select>
             </div>
             <div className="w-full">
-              <form className="flex items-center">
+              <form
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  setResultQuery(search);
+                }}
+                className="flex items-center"
+              >
                 <label htmlFor="simple-search" className="sr-only">
                   Search
                 </label>
                 <div className="relative w-full ">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg
-                      aria-hidden="true"
-                      className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
+                    <IconSearch />
                   </div>
                   <input
                     type="text"
                     id="simple-search"
+                    value={getResultQuery}
+                    onChange={(e) => setResultQuery(e.target.value)}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
                     placeholder="Search NIM, NIK, Nama, No. Permintaan"
                     required
                   />
                 </div>
-                <Button className="px-8 py-2 bg-primary-400 mx-4 md:w-24 w-12">Search</Button>
               </form>
             </div>
           </div>
@@ -198,28 +162,28 @@ const HasilPage: FC = (): ReactElement => {
               </th>
             </tr>
           </thead>
-          {table.map((x, i) => {
+          {getResultData.map((item, key) => {
             return (
-              <tbody key={i}>
+              <tbody key={key}>
                 <tr className="bg-white border-b dark:bg-[#ffff] ">
-                  <td className="px-10 py-3 text-[#262626] ">{x.No}</td>
-                  <td className="px-6 py-3 text-[#262626]">{x.Nik}</td>
+                  <td className="px-10 py-3 text-[#262626] ">{item.no}</td>
+                  <td className="px-6 py-3 text-[#262626]">{item.nik}</td>
                   <td className="px-6 py-3 font-semibold text-[#262626] flex justify-center">
-                    {x.Nama}
+                    {item.nama}
                   </td>
-                  <td className="px-6 py-3">{x.Tggl_permintaan}</td>
-                  <td className="px-6 py-3">{x.Tggl_selesai}</td>
+                  <td className="px-6 py-3">{item.tggl_permintaan}</td>
+                  <td className="px-6 py-3">{item.tggl_selesai}</td>
                   <td className="px-6 py-3 bg-green-400">
                     <button
                       className={` ${
-                        x.Skor === "Sangat Baik"
+                        item.skor === "Sangat Baik"
                           ? "bg-success-400"
-                          : x.Skor === "Cukup Buruk"
+                          : item.skor === "Cukup Buruk"
                           ? "bg-warning-500"
                           : "bg-error-400"
-                      } text-white w-[100px] text-sm p-2 rounded-md cursor-default`}
+                      } text-white w-[100px] text-sm py-2 rounded-md cursor-default`}
                     >
-                      {x.Skor}
+                      {item.skor}
                     </button>
                   </td>
                   <td className="w-full pl-6 py-3 text-[#3D628D]">
@@ -250,18 +214,7 @@ const HasilPage: FC = (): ReactElement => {
       {/* pagination */}
       <div className="flex w-full justify-center items-center gap-x-2 text-neutral-400 my-10">
         <div className="w-9 h-9 px-3 border flex items-center rounded-md cursor-pointer">
-          <svg
-            width="8"
-            height="12"
-            viewBox="0 0 8 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0.72 6.71985C0.579308 6.57934 0.500175 6.3887 0.5 6.18985V5.80985C0.502304 5.61144 0.581116 5.42157 0.72 5.27985L5.86 0.149852C5.95388 0.055196 6.08168 0.00195312 6.215 0.00195312C6.34832 0.00195312 6.47612 0.055196 6.57 0.149852L7.28 0.859852C7.37406 0.952016 7.42707 1.07816 7.42707 1.20985C7.42707 1.34154 7.37406 1.46769 7.28 1.55985L2.83 5.99985L7.28 10.4399C7.37466 10.5337 7.4279 10.6615 7.4279 10.7949C7.4279 10.9282 7.37466 11.056 7.28 11.1499L6.57 11.8499C6.47612 11.9445 6.34832 11.9978 6.215 11.9978C6.08168 11.9978 5.95388 11.9445 5.86 11.8499L0.72 6.71985Z"
-              fill="#E5E5E5"
-            />
-          </svg>
+          <IconPrev />
         </div>
         <div
           className={`${
@@ -304,18 +257,7 @@ const HasilPage: FC = (): ReactElement => {
           5
         </div>
         <div className="w-9 h-9 px-3 border flex items-center rounded-md cursor-pointer">
-          <svg
-            width="8"
-            height="12"
-            viewBox="0 0 8 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M7.28 6.71985C7.42069 6.57934 7.49982 6.3887 7.5 6.18985V5.80985C7.4977 5.61144 7.41888 5.42157 7.28 5.27985L2.14 0.149852C2.04612 0.055196 1.91832 0.00195312 1.785 0.00195312C1.65168 0.00195312 1.52388 0.055196 1.43 0.149852L0.72 0.859852C0.625936 0.952016 0.572928 1.07816 0.572928 1.20985C0.572928 1.34154 0.625936 1.46769 0.72 1.55985L5.17 5.99985L0.72 10.4399C0.625343 10.5337 0.572101 10.6615 0.572101 10.7949C0.572101 10.9282 0.625343 11.056 0.72 11.1499L1.43 11.8499C1.52388 11.9445 1.65168 11.9978 1.785 11.9978C1.91832 11.9978 2.04612 11.9445 2.14 11.8499L7.28 6.71985Z"
-              fill="#4AC1A2"
-            />
-          </svg>
+          <IconNext />
         </div>
       </div>
       <ToastContainer />

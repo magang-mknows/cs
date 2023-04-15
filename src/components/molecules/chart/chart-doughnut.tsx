@@ -31,7 +31,7 @@ const ChartDoughnut: FC = (): ReactElement => {
   };
   const options = {
     cutout: "80%",
-    radius: "100%",
+    radius: "90%",
   };
 
   return <Doughnut data={data} options={options} />;

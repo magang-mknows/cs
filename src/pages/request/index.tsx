@@ -6,8 +6,8 @@ import Card from "@/components/molecules/card";
 import { Tab } from "@headlessui/react";
 
 import PermintaanPage from "@/modules/request/request";
-import ProsesPage from "@/modules/request/proses";
-import HasilPage from "@/modules/request/hasil";
+import ProsesPage from "@/modules/request/process";
+import HasilPage from "@/modules/request/result";
 
 const RequestPages: FC = (): ReactElement => {
   const [active, setActive] = useState("permintaan");

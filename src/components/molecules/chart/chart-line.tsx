@@ -44,16 +44,22 @@ const dataLine = {
     {
       label: "",
       data: [100, 200, 220, 380, 430, 420, 400, 600, 780, 700, 850, 1000],
-      borderColor: "white",
+      borderColor: "#13837B",
       tension: 0.1,
       fill: true,
-      backgroundColor: "#D0F9E3",
+      backgroundColor: (context: any) => {
+        const ctx = context.chart.ctx;
+        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+        gradient.addColorStop(0, "#1B9984");
+        gradient.addColorStop(1, "#B0DBD4");
+        return gradient;
+      },
       hoverBackgroundColor: "#3b83f67e",
       hoverBorderColor: "#3b83f652",
       pointRadius: 6,
       pointHoverRadius: 20,
       pointStyle: "circle",
-      pointBackgroundColor: "#737373",
+      pointBackgroundColor: "white",
       borderWidth: 2,
     },
   ],
