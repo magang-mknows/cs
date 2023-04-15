@@ -2,12 +2,10 @@ import { FC, ReactElement, useState } from "react";
 import Table from "./table";
 import { useUserQuery } from "./hooks";
 import Search from "@/components/atoms/search";
-import IconPrev from "@/components/atoms/icons/ic-prev";
-import IconNext from "@/components/atoms/icons/ic-next";
+import Pagination from "@/components/atoms/pagination";
 
 const UserModules: FC = (): ReactElement => {
   const { setUserQuery, getUserQuery } = useUserQuery();
-  const [isActive, setisActive] = useState("1");
   const [date] = useState();
 
   return (
@@ -24,55 +22,10 @@ const UserModules: FC = (): ReactElement => {
         </div>
       </div>
       <div className="flex flex-col justify-between">
-        <Table />
-        <div className="flex w-full justify-center items-center gap-x-2 text-neutral-400 my-10">
-          <div className="w-9 h-9 px-3 border flex items-center rounded-md cursor-pointer">
-            <IconPrev />
-          </div>
-          <div
-            className={`${
-              isActive == "1" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-            } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-            onClick={() => setisActive("1")}
-          >
-            1
-          </div>
-          <div
-            className={`${
-              isActive == "2" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-            } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-            onClick={() => setisActive("2")}
-          >
-            2
-          </div>
-          <div
-            className={`${
-              isActive == "3" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-            } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-            onClick={() => setisActive("3")}
-          >
-            3
-          </div>
-          <div
-            className={`${
-              isActive == "4" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-            } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-            onClick={() => setisActive("4")}
-          >
-            4
-          </div>
-          <div
-            className={`${
-              isActive == "5" ? "text-[#ffffff] bg-primary-400 rounded-md" : "text-neutral-400"
-            } "w-9 h-9 px-3 border flex items-center cursor-pointer" `}
-            onClick={() => setisActive("5")}
-          >
-            5
-          </div>
-          <div className="w-9 h-9 px-3 border flex items-center rounded-md cursor-pointer">
-            <IconNext />
-          </div>
+        <div className="lg:p-8 p-2">
+          <Table />
         </div>
+        <Pagination />
       </div>
     </div>
   );
