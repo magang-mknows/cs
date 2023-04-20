@@ -9,20 +9,20 @@ const LocationTrack = lazy(() => import("./location-tract"));
 
 const HomeModules: FC = (): ReactElement => {
   return (
-    <div className="flex flex-col">
+    <section>
       <CardSection />
-      <div className="flex w-full flex-row gap-4">
-        <div className="flex-col">
-          <RequestSection />
-          <AgeTrack />
-        </div>
-        <div>
-          <SkorSection />
+      <div className="flex flex-row gap-4">
+        <RequestSection />
+        <SkorSection />
+      </div>
+      <div className="flex flex-row gap-4">
+        <AgeTrack />
+        <div className="flex flex-col">
           <LocationTrack />
           <SalaryTrack />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

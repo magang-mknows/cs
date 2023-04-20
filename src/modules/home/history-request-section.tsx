@@ -11,12 +11,12 @@ const CardSection: FC = (): ReactElement => {
       <div className="grid lg:grid-cols-4 grid-cols-1 gap-x-3 gap-y-4 max-w-scren">
         {getCardData.map((x, i) => {
           return (
-            <div key={i} className="grid grid-cols-4 max-w-scren">
+            <div key={i} className="flex max-w-scren">
               <Card
                 hasButton={true}
                 buttonText="Lihat Detail"
                 buttonClassName={`flex py-1 justify-end items-end my-2 ${x.bgButton} w-full`}
-                className="w-[247px] h-auto absolute shadow-md y-4 px-4"
+                className="w-full h-auto absolute shadow-md y-4 px-4"
               >
                 <div className="flex flex-row w-full h-full space-x-[10px] py-4">
                   <div>
