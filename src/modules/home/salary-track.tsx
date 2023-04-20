@@ -1,4 +1,5 @@
 import { FC, ReactElement } from "react";
+import DropDownDashboard from "@/components/atoms/dropdownmenu/dashboard";
 import ChartBar from "@/components/molecules/chart/chart-bar";
 
 const SalaryTrack: FC = (): ReactElement => {
@@ -6,21 +7,13 @@ const SalaryTrack: FC = (): ReactElement => {
     <section className="bg-white h-[500px]  w-full p-8 my-4">
       <h1 className="text-xl font-semibold p-4">TRACK PENDAPATAN</h1>
       <div className="flex justify-between py-4">
-        <div className="flex px-4 text-sm gap-3 ">
-          <button className="hover:border border-primary-500 text-primary-500 rounded-md p-2 ">
-            Tahun
-          </button>
-          <button className="border border-primary-500 shadow-md text-primary-500 rounded-md p-2 ">
-            Bulan
-          </button>
-          <button className="hover:border border-primary-500 text-primary-500 rounded-md p-2 ">
-            Minggu
-          </button>
+        <div className="px-4">
+          <DropDownDashboard />
         </div>
         <div className="px-2">
           <select
             id="category"
-            className="bg-white border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 "
+            className="bg-white border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[140px] p-2 "
           >
             <option selected>Semua</option>
             <option value="US">AI Optimation</option>
@@ -30,7 +23,9 @@ const SalaryTrack: FC = (): ReactElement => {
           </select>
         </div>
       </div>
-      <ChartBar />
+      <div className="mt-10">
+        <ChartBar />
+      </div>
     </section>
   );
 };
