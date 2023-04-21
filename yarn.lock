@@ -1360,10 +1360,10 @@ electron-to-chromium@^1.4.284:
   resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.340.tgz"
   integrity sha512-zx8hqumOqltKsv/MF50yvdAlPF9S/4PXbyfzJS6ZGhbddGkRegdwImmfSVqCkEziYzrIGZ/TlrzBND4FysfkDg==
 
-emmet-ls@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.npmjs.org/emmet-ls/-/emmet-ls-0.3.1.tgz"
-  integrity sha512-SbNxxpLHnkaT/lA8CpOnnu1fH+VMzEAniAoyqQV+CGVJ9BYwHbaDlOPRckoJFK/6czWCQqDWax1Gk5Pa+HrNmA==
+emmet-ls@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/emmet-ls/-/emmet-ls-0.4.2.tgz#bef5849dfdb2c0ebbe9c0640805a2f292d4bda40"
+  integrity sha512-nwiUsbph9c4TkZjrKb7OqrUG6XQ3AxmmVn3IDR6FTx/xLLAegpmSxfOrvvPADbz9vOkSP6jjShpux1tNrqqIkQ==
   dependencies:
     "@types/node" "^17.0.45"
     emmet "^2.3.6"
