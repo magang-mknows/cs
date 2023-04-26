@@ -62,7 +62,7 @@ const Table: FC = (): ReactElement => {
                 <td className="px-6 py-4 font-bold text-[#262626] cursor-default">{item.nama}</td>
                 <td className="px-6 py-4 text-[#262626] cursor-default">{item.tanggal}</td>
                 <td className="px-6 py-4 text-[#262626] text-blue-500 font-semibold">
-                  <span className="text-secondary-500 cursor-pointer">Lihat Detail</span>
+                  <span className="text-[#3D628D] cursor-pointer ">Lihat Detail</span>
                 </td>
                 <td>
                   <div className="flex gap-2">

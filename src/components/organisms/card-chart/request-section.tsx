@@ -14,7 +14,7 @@ const RequestSection: FC = (): ReactElement => {
         <div>
           <select
             id="category"
-            className="bg-white border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 "
+            className="bg-white border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[180px] p-2 "
           >
             <option selected>Semua</option>
             <option value="US">AI Optimation</option>
