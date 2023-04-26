@@ -3,6 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 import { AuthLayout } from "@/layouts/auth";
 import { BaseLayout } from "@/layouts/base";
 import Spinner from "@/components/atoms/loading/spinner";
+import { LoadingHome } from "@/modules/home/loading-home";
+import { LoadingReport } from "@/modules/report/loading";
 import SuspenseError from "@/modules/common/suspense-error";
 
 import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
@@ -11,6 +13,8 @@ import { ErrorHome } from "@/modules/home/error-home";
 import { ErrorModules } from "@/modules/common/errorpage";
 import { ErrorLogin } from "@/modules/auth/login/error-login";
 import ReportPages from "@/pages/report";
+import ReportModules from "@/modules/report/report";
+import ChartReport from "@/modules/report/grafik";
 
 const LoginPages = lazy(() => import("@/pages/auth/login"));
 const HomePages = lazy(() => import("@/pages/home"));
@@ -73,6 +77,24 @@ export const routes = createBrowserRouter([
             <ReportPages />
           </SuspenseError>
         ),
+        children: [
+          {
+            path: "/dashboard/report/user",
+            element: (
+              <SuspenseError loading={<LoadingReport />} error={"..ini error"}>
+                <ReportModules />
+              </SuspenseError>
+            ),
+          },
+          {
+            path: "/dashboard/report/grafik",
+            element: (
+              <SuspenseError loading={<LoadingHome />} error={"..ini error"}>
+                <ChartReport />
+              </SuspenseError>
+            ),
+          },
+        ],
       },
       {
         path: "/dashboard/quota",

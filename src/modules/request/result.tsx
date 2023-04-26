@@ -1,31 +1,15 @@
 import { ReactElement, FC } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useResultData, useResultQuery } from "./hooks";
 import Pagination from "@/components/atoms/pagination";
 import Search from "@/components/atoms/search";
-import "./index.css";
 
 const HasilPage: FC = (): ReactElement => {
   const { getResultData } = useResultData();
   const { setResultQuery, getResultQuery } = useResultQuery();
-  const showToastMessage = (): any => {
-    toast(
-      <div className="flex flex-row gap gap-x-2 items-center">
-        <img src="/assets/checklist.svg" alt="icon" />
-        <p>Detail Report.pdf berhasil terunduh</p>
-      </div>,
-      {
-        autoClose: 1000,
-        position: toast.POSITION.TOP_RIGHT,
-        className: "toast-message",
-      },
-    );
-  };
 
   return (
     <div className="relative">
-      <div className="mt-9 gap flex lg:flex-row flex-col h-[40px] items-center">
+      <div className="mt-9 my-8 gap flex lg:flex-row flex-col h-[40px] items-center">
         <p className="font-bold text-[#444444] text-lg ml-8 w-[60%]">Permintaan Hari ini</p>
         <div className="w-full">
           <div className="flex flex-row gap gap-x-3 w-full mt-4 lg:mt-0">
@@ -47,46 +31,7 @@ const HasilPage: FC = (): ReactElement => {
           </div>
         </div>
       </div>
-      <div className=" my-4 flex justify-end">
-        <div
-          onClick={showToastMessage}
-          className="w-[156px] h-10 text-sm cursor-pointer lg:mt-0 md:mt-20 mt-20 shadow-md hover:bg-neutral-400 rounded-md flex items-center justify-center font-semibold text-neutral-800"
-        >
-          <div className="w-[20%] flex justify-center items-center">
-            <svg
-              width="21"
-              height="20"
-              viewBox="0 0 21 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M9.46523 4.36388C9.46523 3.79239 9.92852 3.3291 10.5 3.3291C11.0715 3.3291 11.5348 3.79239 11.5348 4.36388V9.2021C11.5348 9.27579 11.5945 9.33552 11.6682 9.33552H13.0872C13.29 9.3356 13.474 9.45401 13.5581 9.63848C13.6421 9.82295 13.6108 10.0395 13.4779 10.1926L10.8907 13.1683C10.7924 13.2816 10.6499 13.3466 10.5 13.3466C10.3501 13.3466 10.2076 13.2816 10.1094 13.1683L7.52215 10.1926C7.38923 10.0395 7.35789 9.82295 7.44197 9.63848C7.52605 9.45401 7.71007 9.3356 7.91279 9.33552H9.33181C9.4055 9.33552 9.46523 9.27579 9.46523 9.2021V4.36388ZM15.5458 13.0152C15.5458 12.6579 15.8354 12.3683 16.1926 12.3683C16.3646 12.3676 16.5298 12.4355 16.6517 12.5568C16.7736 12.6782 16.8421 12.8431 16.8421 13.0152V14.0051C16.8421 15.184 15.8864 16.1398 14.7074 16.1398H6.29258C5.11468 16.1383 4.16058 15.183 4.16058 14.0051V13.0152C4.16058 12.6579 4.45017 12.3683 4.80739 12.3683C5.16461 12.3683 5.45419 12.6579 5.45419 13.0152V14.0051C5.45478 14.4678 5.82988 14.8427 6.29258 14.843H14.7074C15.1701 14.8427 15.5452 14.4678 15.5458 14.0051V13.0152Z"
-                fill="#404040"
-              />
-              <mask
-                id="mask0_1737_6309"
-                maskUnits="userSpaceOnUse"
-                x="4"
-                y="3"
-                width="13"
-                height="14"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M9.46523 4.36388C9.46523 3.79239 9.92852 3.3291 10.5 3.3291C11.0715 3.3291 11.5348 3.79239 11.5348 4.36388V9.2021C11.5348 9.27579 11.5945 9.33552 11.6682 9.33552H13.0872C13.29 9.3356 13.474 9.45401 13.5581 9.63848C13.6421 9.82295 13.6108 10.0395 13.4779 10.1926L10.8907 13.1683C10.7924 13.2816 10.6499 13.3466 10.5 13.3466C10.3501 13.3466 10.2076 13.2816 10.1094 13.1683L7.52215 10.1926C7.38923 10.0395 7.35789 9.82295 7.44197 9.63848C7.52605 9.45401 7.71007 9.3356 7.91279 9.33552H9.33181C9.4055 9.33552 9.46523 9.27579 9.46523 9.2021V4.36388ZM15.5458 13.0152C15.5458 12.6579 15.8354 12.3683 16.1926 12.3683C16.3646 12.3676 16.5298 12.4355 16.6517 12.5568C16.7736 12.6782 16.8421 12.8431 16.8421 13.0152V14.0051C16.8421 15.184 15.8864 16.1398 14.7074 16.1398H6.29258C5.11468 16.1383 4.16058 15.183 4.16058 14.0051V13.0152C4.16058 12.6579 4.45017 12.3683 4.80739 12.3683C5.16461 12.3683 5.45419 12.6579 5.45419 13.0152V14.0051C5.45478 14.4678 5.82988 14.8427 6.29258 14.843H14.7074C15.1701 14.8427 15.5452 14.4678 15.5458 14.0051V13.0152Z"
-                  fill="white"
-                />
-              </mask>
-              <g mask="url(#mask0_1737_6309)"></g>
-            </svg>
-          </div>
-          Download All
-        </div>
-      </div>
+
       {/* table */}
       <div className="overflow-x-scroll">
         <table className="w-full text-sm border rounded-lg text-left text-gray-500  dark:text-gray-400">
@@ -177,7 +122,7 @@ const HasilPage: FC = (): ReactElement => {
         <div className=" text-neutral-400 font-base">Menampilkan 1-10 dari 110 hasil</div>
         <div className="font-semibold text-neutral-500">
           Untuk melihat riwayat permintaan sebelumnya{" "}
-          <span className="text-blue-600">
+          <span className="text-[#4FA0CF]">
             {" "}
             <a href="">Klik Disini</a>
           </span>
@@ -185,7 +130,6 @@ const HasilPage: FC = (): ReactElement => {
       </div>
 
       <Pagination />
-      <ToastContainer />
     </div>
   );
 };

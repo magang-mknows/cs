@@ -13,7 +13,7 @@ const ChartReport: FC = (): ReactElement => {
         <RequestSection />
         <SkorSection />
       </div>
-      <div className="flex lg:flex-row flex-col  gap-6">
+      <div className="flex lg:flex-row flex-col  gap-8">
         <AgeTrack />
         <div className="flex flex-col gap-4">
           <LocationTrack />

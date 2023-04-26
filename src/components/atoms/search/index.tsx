@@ -22,9 +22,6 @@ const Search: FC<SearchProps> = ({ onChange, value }): ReactElement => {
           required
         />
       </div>
-      <button className="border bg-white text-primary-500 font-semibold w-[200px] border-primary-400 rounded-md p-2">
-        + Tambah Data
-      </button>
     </div>
   );
 };

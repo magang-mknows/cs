@@ -14,6 +14,9 @@ const UserModules: FC = (): ReactElement => {
         <DateInput />
         <div className="flex gap-2">
           <Search value={getUserQuery} onChange={(e) => setUserQuery(e.target.value)} />
+          <button className="border bg-white text-primary-500 font-semibold w-[200px] border-primary-400 rounded-md p-2">
+            + Tambah Data
+          </button>
         </div>
       </div>
       <div className="flex flex-col justify-between">

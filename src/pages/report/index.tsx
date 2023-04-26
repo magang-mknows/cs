@@ -1,12 +1,10 @@
-import { FC, lazy, ReactElement, useState, Fragment } from "react";
+import { FC, ReactElement, useState, Fragment } from "react";
 import SuspenseError from "@/modules/common/suspense-error";
 import { LoadingReport } from "@/modules/report/loading";
 import { ErrorReport } from "@/modules/report/error";
+import { Outlet, NavLink } from "react-router-dom";
 import Card from "@/components/molecules/card";
 import { Tab } from "@headlessui/react";
-
-const ReportModules = lazy(() => import("@/modules/report"));
-const ChartReport = lazy(() => import("@/modules/report/grafik"));
 
 const ReportPages: FC = (): ReactElement => {
   const [active, setActive] = useState("laporan");
@@ -22,7 +20,8 @@ const ReportPages: FC = (): ReactElement => {
               >
                 <Tab as={Fragment}>
                   <button>
-                    <a
+                    <NavLink
+                      to="/dashboard/report/user"
                       className={`inline-block p-4 ${
                         active == "laporan" ? "text-primary-400 border-b-4 border-primary-400" : ""
                       }       text-neutral-400 text-xs md:text-base `}
@@ -30,12 +29,13 @@ const ReportPages: FC = (): ReactElement => {
                       onClick={() => setActive("laporan")}
                     >
                       Laporan User
-                    </a>
+                    </NavLink>
                   </button>
                 </Tab>
                 <Tab as={Fragment}>
                   <button>
-                    <a
+                    <NavLink
+                      to="/dashboard/report/grafik"
                       className={`inline-block p-4 ${
                         active == "Grafik" ? "text-primary-400 border-b-4 border-primary-400" : ""
                       }       text-neutral-400 text-xs md:text-base`}
@@ -43,21 +43,14 @@ const ReportPages: FC = (): ReactElement => {
                       onClick={() => setActive("Grafik")}
                     >
                       Grafik
-                    </a>
+                    </NavLink>
                   </button>
                 </Tab>
               </Tab.List>
 
               {/* content */}
               <Tab.Panels>
-                {/* tab 1 */}
-                <Tab.Panel>
-                  <ReportModules />
-                </Tab.Panel>
-                {/* tab 2 */}
-                <Tab.Panel>
-                  <ChartReport />
-                </Tab.Panel>
+                <Outlet />
               </Tab.Panels>
             </div>
           </Card>
