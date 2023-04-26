@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { AuthLayout } from "@/layouts/auth";
 import { BaseLayout } from "@/layouts/base";
 import Spinner from "@/components/atoms/loading/spinner";
-import { LoadingHome } from "@/modules/home/loading-home";
+import { LoadingGrafik } from "@/modules/report/grafik/loading";
 import { LoadingReport } from "@/modules/report/loading";
 import SuspenseError from "@/modules/common/suspense-error";
 
@@ -89,7 +89,7 @@ export const routes = createBrowserRouter([
           {
             path: "/dashboard/report/grafik",
             element: (
-              <SuspenseError loading={<LoadingHome />} error={"..ini error"}>
+              <SuspenseError loading={<LoadingGrafik />} error={"..ini error"}>
                 <ChartReport />
               </SuspenseError>
             ),
