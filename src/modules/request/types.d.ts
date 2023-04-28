@@ -3,6 +3,7 @@ export type TRequestDummyData = {
   name: string;
   totalData: number;
   totalNotifikasi: number;
+  category: string;
 };
 
 export type TRequestDataResponse = { getRequestData: TRequestDummyData[] };

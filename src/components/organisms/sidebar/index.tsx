@@ -27,7 +27,7 @@ const Sidebar: FC = (): ReactElement => {
     },
     {
       title: "Laporan",
-      path: "/dashboard/report/user",
+      path: "/dashboard/report/",
       icon: <IconReport />,
     },
     {

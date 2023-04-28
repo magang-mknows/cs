@@ -10,9 +10,9 @@ const ReportModules: FC = (): ReactElement => {
 
   return (
     <div className="bg-white w-full h-full my-8 ">
-      <div className="flex flex-col lg:flex-row justify-between gap-4 lg:px-8 px-2 pt-12">
+      <div className="flex flex-col lg:flex-row justify-between lg:px-8 px-2 pt-12">
         <DateInput />
-        <div className="flex flex-col lg:flex-row gap-2">
+        <div className="flex flex-col justify-end lg:flex-row gap-2">
           <select
             id="category"
             className="bg-gray-50 mx-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[30%] px-3 "

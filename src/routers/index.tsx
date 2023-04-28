@@ -9,7 +9,7 @@ import SuspenseError from "@/modules/common/suspense-error";
 
 import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
 import { AuthSkeleton } from "@/layouts/auth/auth-skeleton";
-import { ErrorHome } from "@/modules/home/error-home";
+import { ErrorHome } from "@/modules/home/error";
 import { ErrorModules } from "@/modules/common/errorpage";
 import { ErrorLogin } from "@/modules/auth/login/error-login";
 import ReportPages from "@/pages/report";
@@ -79,7 +79,7 @@ export const routes = createBrowserRouter([
         ),
         children: [
           {
-            path: "/dashboard/report/user",
+            path: "/dashboard/report",
             element: (
               <SuspenseError loading={<LoadingReport />} error={"..ini error"}>
                 <ReportModules />
