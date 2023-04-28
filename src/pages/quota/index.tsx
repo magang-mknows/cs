@@ -1,7 +1,12 @@
 import { FC, ReactElement } from "react";
+import Table from "@/modules/quota";
 
 const QuotaPages: FC = (): ReactElement => {
-  return <h1>Ini halaman Kuota ya Gays</h1>;
+  return (
+    <div>
+      <Table />
+    </div>
+  );
 };
 
 export default QuotaPages;

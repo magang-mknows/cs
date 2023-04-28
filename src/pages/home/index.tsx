@@ -1,7 +1,7 @@
 import { FC, lazy, ReactElement } from "react";
 import SuspenseError from "@/modules/common/suspense-error";
 import { LoadingHome } from "@/modules/home/loading";
-import { ErrorHome } from "@/modules/home/error-home";
+import { ErrorHome } from "@/modules/home/error";
 
 const HomeModules = lazy(() => import("@/modules/home"));
 
