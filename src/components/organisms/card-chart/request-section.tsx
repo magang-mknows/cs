@@ -1,26 +1,20 @@
 import { FC, ReactElement } from "react";
+
 import ChartLine from "@/components/molecules/chart/chart-line";
+import DropDownDashboard from "@/components/atoms/dropdownmenu/dashboard";
 
 const RequestSection: FC = (): ReactElement => {
   return (
-    <section className="bg-white lg:h-[500px] h-[400px] w-full my-4">
+    <section className="bg-white lg:h-[500px] h-[400px] w-full rounded-md my-4">
       <h1 className="text-xl font-semibold p-4">RIWAYAT PERMINTAAN</h1>
-      <div className="flex justify-between py-4">
-        <div className="flex px-4 text-sm gap-3 ">
-          <button className="hover:border border-primary-500 text-primary-500 rounded-md p-2 ">
-            Tahun
-          </button>
-          <button className="border border-primary-500 shadow-md text-primary-500 rounded-md p-2 ">
-            Bulan
-          </button>
-          <button className="hover:border border-primary-500 text-primary-500 rounded-md p-2 ">
-            Minggu
-          </button>
+      <div className="flex justify-between py-3">
+        <div className="px-4">
+          <DropDownDashboard />
         </div>
-        <div className="px-2">
+        <div>
           <select
             id="category"
-            className="bg-white border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 "
+            className="bg-white border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[180px] p-2 "
           >
             <option selected>Semua</option>
             <option value="US">AI Optimation</option>

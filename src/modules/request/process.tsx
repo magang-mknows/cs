@@ -71,10 +71,10 @@ const ProsesPage: FC = (): ReactElement => {
               </th>
             </tr>
           </thead>
-          {getResultData.map((item, key) => {
-            return (
-              <tbody key={key}>
-                <tr className="bg-white border-b dark:bg-[#ffff] ">
+          <tbody>
+            {getResultData.map((item, key) => {
+              return (
+                <tr key={key} className="bg-white border-b dark:bg-[#ffff] ">
                   <td className="px-10 py-3 text-[#262626] flex justify-center">{item.no}</td>
                   <td className="px-6 py-3 text-[#262626]">{item.nik}</td>
                   <td className="px-6 py-3 font-semibold text-[#262626] flex justify-center">
@@ -96,9 +96,9 @@ const ProsesPage: FC = (): ReactElement => {
                     </button>
                   </td>
                 </tr>
-              </tbody>
-            );
-          })}
+              );
+            })}
+          </tbody>
         </table>
       </div>
       <div className="lg:text-xs text-[10px]  flex flex-row justify-between my-3">

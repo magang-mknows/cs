@@ -3,18 +3,19 @@ import { createBrowserRouter } from "react-router-dom";
 import { AuthLayout } from "@/layouts/auth";
 import { BaseLayout } from "@/layouts/base";
 import Spinner from "@/components/atoms/loading/spinner";
+import { LoadingGrafik } from "@/modules/report/grafik/loading";
+import { LoadingReport } from "@/modules/report/loading";
 import SuspenseError from "@/modules/common/suspense-error";
 
 import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
-import { LoadingHome } from "@/modules/home/loading-home";
-import { LoadingUser } from "@/modules/user/loading";
-import LoadingRequest from "@/modules/request/loading";
 import { AuthSkeleton } from "@/layouts/auth/auth-skeleton";
-import { ErrorHome } from "@/modules/home/error-home";
+import { ErrorHome } from "@/modules/home/error";
 import { ErrorModules } from "@/modules/common/errorpage";
 import { ErrorLogin } from "@/modules/auth/login/error-login";
 import ReportPages from "@/pages/report";
-import { LoadingReport } from "@/modules/report/loading";
+import ReportModules from "@/modules/report/report";
+import ChartReport from "@/modules/report/grafik";
+import { LoadingUser } from "@/modules/user/loading";
 
 const LoginPages = lazy(() => import("@/pages/auth/login"));
 const HomePages = lazy(() => import("@/pages/home"));
@@ -50,7 +51,7 @@ export const routes = createBrowserRouter([
       {
         path: "/dashboard/home",
         element: (
-          <SuspenseError loading={<LoadingHome />} error={<ErrorHome />}>
+          <SuspenseError loading={<Spinner />} error={<ErrorHome />}>
             <HomePages />
           </SuspenseError>
         ),
@@ -58,7 +59,7 @@ export const routes = createBrowserRouter([
       {
         path: "/dashboard/user",
         element: (
-          <SuspenseError loading={<LoadingUser />} error={"..ini error"}>
+          <SuspenseError loading={<Spinner />} error={"..ini error"}>
             <UserPages />
           </SuspenseError>
         ),
@@ -74,7 +75,7 @@ export const routes = createBrowserRouter([
       {
         path: "/dashboard/request",
         element: (
-          <SuspenseError loading={<LoadingRequest />} error={"..ini error"}>
+          <SuspenseError loading={<Spinner />} error={"..ini error"}>
             <RequestPages />
           </SuspenseError>
         ),
@@ -82,10 +83,28 @@ export const routes = createBrowserRouter([
       {
         path: "/dashboard/report",
         element: (
-          <SuspenseError loading={<LoadingReport />} error={"..ini error"}>
+          <SuspenseError loading={<Spinner />} error={"..ini error"}>
             <ReportPages />
           </SuspenseError>
         ),
+        children: [
+          {
+            path: "/dashboard/report",
+            element: (
+              <SuspenseError loading={<LoadingReport />} error={"..ini error"}>
+                <ReportModules />
+              </SuspenseError>
+            ),
+          },
+          {
+            path: "/dashboard/report/grafik",
+            element: (
+              <SuspenseError loading={<LoadingGrafik />} error={"..ini error"}>
+                <ChartReport />
+              </SuspenseError>
+            ),
+          },
+        ],
       },
       {
         path: "/dashboard/quota",
