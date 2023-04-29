@@ -1,7 +1,13 @@
 import { FC, ReactElement } from "react";
 
+import QuotaPage from "@/modules/quota";
+
 const QuotaPages: FC = (): ReactElement => {
-  return <h1>Ini halaman Kuota ya Gays</h1>;
+  return (
+    <section>
+      <QuotaPage />
+    </section>
+  );
 };
 
 export default QuotaPages;

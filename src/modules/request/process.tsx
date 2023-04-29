@@ -1,18 +1,14 @@
 import { ReactElement, FC, useState } from "react";
-import Button from "@/components/atoms/button";
-import { Dialog } from "@headlessui/react";
-import Card from "@/components/molecules/card";
 import { useResultData, useResultQuery } from "./hooks";
 import Search from "@/components/atoms/search";
 import Pagination from "@/components/atoms/pagination";
 
 const ProsesPage: FC = (): ReactElement => {
-  const [isOpen, setisOpen] = useState(false);
   const { setResultQuery, getResultQuery } = useResultQuery();
   const { getResultData } = useResultData();
 
   return (
-    <div>
+    <section>
       <div className="my-9 flex lg:flex-row flex-col h-[40px]  items-center">
         <p className="font-bold text-[#444444] text-lg ml-8 w-[60%]">Permintaan Hari ini</p>
         <div className="flex flex-row gap gap-x-3 w-full mt-4 lg:mt-0">
@@ -117,69 +113,7 @@ const ProsesPage: FC = (): ReactElement => {
       </div>
 
       <Pagination />
-
-      <Dialog
-        open={isOpen}
-        onClose={() => setisOpen(false)}
-        className="absolute lg:left-[45%] md:left-[30%] top-[40%] left-[20%]"
-      >
-        <Dialog.Panel>
-          <Dialog.Title>
-            <Card className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
-              <div className="w-full flex flex-col gap gap-y-2">
-                <div className="bg-error-100 rounded-full w-7 h-7 flex justify-center items-center">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 15.0015C11.8618 15.0015 11.7498 15.1135 11.7498 15.2516C11.7498 15.3898 11.8618 15.5018 12 15.5018C12.1382 15.5018 12.2502 15.3898 12.2502 15.2516C12.2502 15.1135 12.1382 15.0015 12 15.0015"
-                      stroke="#EE2D24"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M12 13.0005V7.49707"
-                      stroke="#EE2D24"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M12 19.5045C16.1447 19.5045 19.5047 16.1445 19.5047 11.9998C19.5047 7.85508 16.1447 4.49512 12 4.49512C7.85528 4.49512 4.49532 7.85508 4.49532 11.9998C4.49532 16.1445 7.85528 19.5045 12 19.5045Z"
-                      stroke="#EE2D24"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
-                </div>
-                <p className="font-semibold text-sm">Something went wrong!</p>
-                <p className="font-base text-xs text-neutral-400">
-                  Maaf, saat ini anda tidak dapat melanjutkan proses permintaan. Anda belum
-                  melengkapi data yang dibutuhkan.
-                </p>
-                <div className="flex flex-row w-full gap gap-x-3">
-                  <Button
-                    className="w-full text-sm py-1"
-                    color="borderWarning"
-                    onClick={() => setisOpen(false)}
-                  >
-                    Kembali
-                  </Button>
-                  <Button className="w-full text-sm py-1" color="warning">
-                    Lengkapi Data
-                  </Button>
-                </div>
-              </div>
-            </Card>
-          </Dialog.Title>
-        </Dialog.Panel>
-      </Dialog>
-    </div>
+    </section>
   );
 };
 

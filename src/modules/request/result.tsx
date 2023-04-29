@@ -1,14 +1,84 @@
-import { ReactElement, FC } from "react";
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import { useState, useCallback, MouseEventHandler } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useResultData, useResultQuery } from "./hooks";
 import Pagination from "@/components/atoms/pagination";
 import Search from "@/components/atoms/search";
 import "./index.css";
+import { useRecoilValue } from "recoil";
+import { sortedTable } from "./store";
 
-const HasilPage: FC = (): ReactElement => {
-  const { getResultData } = useResultData();
-  const { setResultQuery, getResultQuery } = useResultQuery();
+// const dataDummy = resultDummyData;
+
+// type DataDummy = typeof dataDummy;
+// type SortKeys = keyof DataDummy[];
+// type SortOrder = "ascn" | "dsc";
+
+// function sortData({
+//   tableData,
+//   sortKey,
+//   reverse,
+// }: {
+//   tableData: DataDummy;
+//   sortKey: SortKeys;
+//   reverse: boolean;
+// }) {
+//   if (!sortKey) return tableData;
+
+//   const sortedData = dataDummy.sort((a, b) => {
+//     return a[sortKey] > b[sortKey] ? 1 : -1;
+//   });
+//   if (reverse) {
+//     return sortedData.reverse();
+//   }
+//   return sortedData;
+// }
+
+// function SortButton({
+//   sortOrder,
+//   columnKey,
+//   sortKey,
+//   onClick,
+// }: {
+//   sortOrder: SortOrder;
+//   columnKey: SortKeys;
+//   sortKey: SortKeys;
+//   onClick: MouseEventHandler<HTMLButtonElement>;
+// }) {
+//   return (
+//     <button onClick={onClick}>
+//       <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" className="w-full" />
+//     </button>
+//   );
+// }
+
+// eslint-disable-next-line @typescript-eslint/no-shadow
+function HasilPage() {
+  const sortOrder = "DESC";
+  const mySortedData = useRecoilValue(sortedTable(sortOrder));
+  // sort
+  // const [sortKey, setSortKey] = useState<SortKeys>("Nama");
+  // const [sortOrder, setSortOrder] = useState<SortOrder>("ascn");
+  // const headers: { key: SortKeys; label: string }[] = [
+  //   { key: "No", label: "No. Permintaan" },
+  //   { key: "Nik", label: "NIK" },
+  //   { key: "Nama", label: "Nama" },
+  //   { key: "Tggl_permintaan", label: "Tanggal Permintaan" },
+  //   { key: "Tggl_selesai", label: "Tanggal Selesai" },
+  //   { key: "Skor", label: "Skor" },
+  //   { key: "Detail", label: "Detail" },
+  // ];
+  // const sortedData = useCallback(
+  //   () => sortData({ tableData: dataDummy, sortKey, reverse: sortOrder === "dsc" }),
+  //   [dataDummy, sortKey, sortOrder],
+  // );
+
+  // function changeSort(key: SortKeys) {
+  //   setSortOrder(sortOrder === "ascn" ? "dsc" : "ascn");
+  //   setSortKey(key);
+  // }
+  // notification
   const showToastMessage = (): any => {
     toast(
       <div className="flex flex-row gap gap-x-2 items-center">
@@ -22,9 +92,9 @@ const HasilPage: FC = (): ReactElement => {
       },
     );
   };
-
+  const { setResultQuery, getResultQuery } = useResultQuery();
   return (
-    <div className="relative">
+    <section className="relative">
       <div className="mt-9 gap flex lg:flex-row flex-col h-[40px] items-center">
         <p className="font-bold text-[#444444] text-lg ml-8 w-[60%]">Permintaan Hari ini</p>
         <div className="w-full">
@@ -93,70 +163,34 @@ const HasilPage: FC = (): ReactElement => {
           <thead className="text-xs border text-gray-700 font-light bg-[#F6FBFA] dark:bg-[#F5F8FF] dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-2 cursor-default w-[10%]">
-                <div className="flex justify-center items-center">
-                  <p>No. Permintaan</p>
-                  <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
-                </div>
-              </th>
-              <th scope="col" className="px-6 py-2 cursor-default">
-                <div className="flex gap-2 justify-center items-center">
-                  <p>NIK</p>
-                  <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
-                </div>
-              </th>
-              <th scope="col" className="w-[40%] px-6 py-2 cursor-default">
-                <div className=" flex gap-2 justify-center items-center">
-                  <p>Nama</p>
-                  <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
-                </div>
-              </th>
-              <th scope="col" className="px-6 py-2 cursor-default">
-                <div className="flex gap-2 justify-center items-center">
-                  <p>Tanggal Permintaan</p>
-                  <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
-                </div>
-              </th>
-              <th scope="col" className="px-6 py-2 cursor-default w-full">
-                <div className="flex gap-2 justify-center items-center">
-                  <p>Tanggal Selesai</p>
-                </div>
-              </th>
-              <th scope="col" className="px-6 py-2 cursor-default">
-                <div className="flex gap-2 justify-center items-center">
-                  <p>Skor</p>
-                  <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
-                </div>
-              </th>
-              <th scope="col" className=" px-6 py-2 cursor-default">
-                <div className="flex gap-2 justify-center items-center">
-                  <p>Lihat Detail</p>
-                  <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
+                <div className="flex justify-center items-center space-x-2">
+                  <p>No Permintaan</p>
                 </div>
               </th>
             </tr>
           </thead>
-          {getResultData.map((item, key) => {
+          {mySortedData.map((data, index) => {
             return (
-              <tbody key={key}>
+              <tbody key={index}>
                 <tr className="bg-white border-b dark:bg-[#ffff] ">
-                  <td className="px-10 py-3 text-[#262626] ">{item.no}</td>
-                  <td className="px-6 py-3 text-[#262626]">{item.nik}</td>
+                  <td className="px-10 py-3 text-[#262626] ">{data.no}</td>
+                  <td className="px-6 py-3 text-[#262626]">{data.nik}</td>
                   <td className="px-6 py-3 font-semibold text-[#262626] flex justify-center">
-                    {item.nama}
+                    {data.nama}
                   </td>
-                  <td className="px-6 py-3">{item.tggl_permintaan}</td>
-                  <td className="px-6 py-3">{item.tggl_selesai}</td>
+                  <td className="px-6 py-3">{data.tggl_permintaan}</td>
+                  <td className="px-6 py-3">{data.tggl_selesai}</td>
                   <td className="px-6 py-3 bg-green-400">
                     <button
                       className={` ${
-                        item.skor === "Sangat Baik"
+                        data.skor === "Sangat Baik"
                           ? "bg-success-400"
-                          : item.skor === "Cukup Buruk"
+                          : data.skor === "Cukup Buruk"
                           ? "bg-warning-500"
                           : "bg-error-400"
                       } text-white w-[100px] text-sm py-2 rounded-md cursor-default`}
                     >
-                      {item.skor}
+                      {data.skor}
                     </button>
                   </td>
                   <td className="w-full pl-6 py-3 text-[#3D628D]">
@@ -184,10 +218,11 @@ const HasilPage: FC = (): ReactElement => {
         </div>
       </div>
 
+      {/* pagination */}
       <Pagination />
       <ToastContainer />
-    </div>
+    </section>
   );
-};
+}
 
 export default HasilPage;

@@ -3,6 +3,7 @@ import Table from "./table";
 import { useUserQuery } from "./hooks";
 import Search from "@/components/atoms/search";
 import Pagination from "@/components/atoms/pagination";
+import { Link } from "react-router-dom";
 
 const UserModules: FC = (): ReactElement => {
   const { setUserQuery, getUserQuery } = useUserQuery();
@@ -17,8 +18,17 @@ const UserModules: FC = (): ReactElement => {
           <h1>Sampai : {date}</h1>
           <input type="date" />
         </div>
-        <div className="flex gap-2">
-          <Search value={getUserQuery} onChange={(e) => setUserQuery(e.target.value)} />
+        <div className="flex flex-row">
+          <div className="w-full">
+            <Search value={getUserQuery} onChange={(e) => setUserQuery(e.target.value)} />
+          </div>
+          <div className="w-[60%]">
+            <Link to={"/dashboard/user/add-data"}>
+              <button className="border bg-white text-primary-500 font-semibold border-primary-400 rounded-md p-2">
+                + Tambah Data
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
       <div className="flex flex-col justify-between">

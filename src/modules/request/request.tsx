@@ -10,7 +10,7 @@ const PermintaanPage: FC = (): ReactElement => {
   const [isOpen, setisOpen] = useState(false);
 
   return (
-    <div>
+    <section>
       <div className="flex flex-row gap gap-x-2 py-2 items-center w-full">
         <IconWarning />
         <p className="text-xs md:text-sm font-normal text-neutral-500">
@@ -115,7 +115,7 @@ const PermintaanPage: FC = (): ReactElement => {
           </Dialog.Title>
         </Dialog.Panel>
       </Dialog>
-    </div>
+    </section>
   );
 };
 

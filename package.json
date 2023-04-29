@@ -36,6 +36,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@tailwindcss/language-server": "^0.0.13",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
