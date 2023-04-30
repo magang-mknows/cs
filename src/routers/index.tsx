@@ -15,10 +15,12 @@ import { ErrorLogin } from "@/modules/auth/login/error-login";
 import ReportPages from "@/pages/report";
 import ReportModules from "@/modules/report/report";
 import ChartReport from "@/modules/report/grafik";
+import { LoadingUser } from "@/modules/user/loading";
 
 const LoginPages = lazy(() => import("@/pages/auth/login"));
 const HomePages = lazy(() => import("@/pages/home"));
 const UserPages = lazy(() => import("@/pages/user"));
+const AddDataPages = lazy(() => import("@/pages/user/add-data"));
 const RequestPages = lazy(() => import("@/pages/request"));
 const QuotaPages = lazy(() => import("@/pages/quota"));
 
@@ -59,6 +61,14 @@ export const routes = createBrowserRouter([
         element: (
           <SuspenseError loading={<Spinner />} error={"..ini error"}>
             <UserPages />
+          </SuspenseError>
+        ),
+      },
+      {
+        path: "/dashboard/user/add-data",
+        element: (
+          <SuspenseError loading={<LoadingUser />} error={"..ini error"}>
+            <AddDataPages />
           </SuspenseError>
         ),
       },

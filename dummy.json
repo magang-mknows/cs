@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "No": 10002345,
+    "Nik": 327000189266,
+    "Nama": "Albert Maniqueen",
+    "Tggl_permintaan": "11/2/2021",
+    "Tggl_selesai": "11/2/2021",
+    "Skor": "Sangat Baik",
+    "Detail": "Lihat Detail"
+  },
+  {
+    "id": 2,
+    "No": 30002345,
+    "Nik": 327000189266,
+    "Nama": "Bagus Maniqueen",
+    "Tggl_permintaan": "11/2/2021",
+    "Tggl_selesai": "11/2/2021",
+    "Skor": "Cukup Buruk",
+    "Detail": "Lihat Detail"
+  },
+  {
+    "id": 3,
+    "No": 20002345,
+    "Nik": 327000189266,
+    "Nama": "Cukup Maniqueen",
+    "Tggl_permintaan": "11/2/2021",
+    "Tggl_selesai": "11/2/2021",
+    "Skor": "Sangat Baik",
+    "Detail": "Lihat Detail"
+  },
+  {
+    "id": 4,
+    "No": 40002345,
+    "Nik": 327000189266,
+    "Nama": "Dani Maniqueen",
+    "Tggl_permintaan": "11/2/2021",
+    "Tggl_selesai": "11/2/2021",
+    "Skor": "Sangat Buruk",
+    "Detail": "Lihat Detail"
+  }
+]

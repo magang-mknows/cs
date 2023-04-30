@@ -5,10 +5,12 @@ import LoadingRequest from "@/modules/request/loading";
 import Card from "@/components/molecules/card";
 import { Tab } from "@headlessui/react";
 
-import AlokasiKuota from "./alocation-quota";
+import PermintaanPage from "@/modules/request/request";
+import ProsesPage from "@/modules/request/process";
+import HasilPage from "@/modules/request/result";
 
-const QuotaPage: FC = (): ReactElement => {
-  const [active, setActive] = useState("alokasi");
+const RequestPage: FC = (): ReactElement => {
+  const [active, setActive] = useState("permintaan");
   return (
     <SuspenseError error={<ErrorRequest />} loading={<LoadingRequest />}>
       <Tab.Group>
@@ -23,12 +25,14 @@ const QuotaPage: FC = (): ReactElement => {
                   <button>
                     <a
                       className={`inline-block p-4 ${
-                        active == "alokasi" ? "text-primary-400 border-b-4 border-primary-400" : ""
+                        active == "permintaan"
+                          ? "text-primary-400 border-b-4 border-primary-400"
+                          : ""
                       }       text-neutral-400 text-xs md:text-base `}
                       aria-current="page"
-                      onClick={() => setActive("alokasi")}
+                      onClick={() => setActive("permintaan")}
                     >
-                      Alokasi Kuota
+                      Permintaan
                     </a>
                   </button>
                 </Tab>
@@ -36,12 +40,25 @@ const QuotaPage: FC = (): ReactElement => {
                   <button>
                     <a
                       className={`inline-block p-4 ${
-                        active == "riwayat" ? "text-primary-400 border-b-4 border-primary-400" : ""
+                        active == "proses" ? "text-primary-400 border-b-4 border-primary-400" : ""
                       }       text-neutral-400 text-xs md:text-base`}
                       aria-current="page"
-                      onClick={() => setActive("riwayat")}
+                      onClick={() => setActive("proses")}
                     >
-                      Riwayat Alokasi Kuota
+                      Proses
+                    </a>
+                  </button>
+                </Tab>
+                <Tab as={Fragment}>
+                  <button>
+                    <a
+                      className={`inline-block p-4 ${
+                        active == "Hasil" ? "text-primary-400 border-b-4 border-primary-400" : ""
+                      }       text-neutral-400 text-xs  md:text-base`}
+                      aria-current="page"
+                      onClick={() => setActive("Hasil")}
+                    >
+                      Hasil
                     </a>
                   </button>
                 </Tab>
@@ -51,10 +68,16 @@ const QuotaPage: FC = (): ReactElement => {
               <Tab.Panels>
                 {/* tab 1 */}
                 <Tab.Panel>
-                  <AlokasiKuota />
+                  <PermintaanPage />
                 </Tab.Panel>
                 {/* tab 2 */}
-                <Tab.Panel>2</Tab.Panel>
+                <Tab.Panel>
+                  <ProsesPage />
+                </Tab.Panel>
+                {/* tabel 3 */}
+                <Tab.Panel>
+                  <HasilPage />
+                </Tab.Panel>
               </Tab.Panels>
             </div>
           </Card>
@@ -64,4 +87,4 @@ const QuotaPage: FC = (): ReactElement => {
   );
 };
 
-export default QuotaPage;
+export default RequestPage;

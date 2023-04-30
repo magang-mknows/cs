@@ -65,10 +65,19 @@ const Sidebar: FC = (): ReactElement => {
           <div>
             <img src={"/assets/logo.webp"} alt="logo" className="w-[200px] h-auto p-6" />
           </div>
-          <div className="pt-4 font-medium border-t w-full border-[#F5F5F5]  ">
+
+          <div className="pt-4 font-medium w-full border-[#F5F5F5] ">
+            <div className="flex border-b-2 rounded-md cursor-pointer gap-2 px-2 pt-6 pb-6 items-center">
+              <a href="">
+                <div className=" rounded-full border-[#4AC1A2] border-2 items-center flex">
+                  <img src={"/assets/navbar/user.png"} alt="user" />
+                </div>
+              </a>
+              <div className="font-semibold text-sm text-neutral-500">Fatwa Nasution</div>
+            </div>
             {DataSidebar.map((x, i) => {
               return (
-                <div key={i}>
+                <div key={i} className="my-4">
                   <NavLink
                     to={x.path}
                     className={({ isActive }) => (isActive ? activeLink : normalLink)}
@@ -80,7 +89,7 @@ const Sidebar: FC = (): ReactElement => {
               );
             })}
             <Link to={"/"}>
-              <div className="flex h-full gap-2 p-3 rounded-md mt-[90%] text-neutral-400 hover:bg-neutral-300 hover:text-[#ffffff] cursor-pointer items-end">
+              <div className="flex h-full gap-2 p-5 rounded-md text-neutral-400 hover:bg-neutral-300 hover:text-[#ffffff] cursor-pointer items-end">
                 <span>
                   <IconLogout />
                 </span>

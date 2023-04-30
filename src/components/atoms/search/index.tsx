@@ -4,7 +4,7 @@ import IconSearch from "../icons/ic-search";
 
 const Search: FC<SearchProps> = ({ onChange, value }): ReactElement => {
   return (
-    <div className="flex flex-col lg:flex-row gap-y-3 gap-x-2 px-8 lg:px-1 items-center">
+    <div className="px-8 lg:px-1 items-center w-full">
       <label htmlFor="simple-search" className="sr-only">
         Search
       </label>
