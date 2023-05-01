@@ -6,6 +6,7 @@ import Card from "@/components/molecules/card";
 import { Tab } from "@headlessui/react";
 
 import AlokasiKuota from "./alocation-quota";
+import RiwayatAlokasi from "./history-alocation";
 
 const QuotaPage: FC = (): ReactElement => {
   const [active, setActive] = useState("alokasi");
@@ -54,7 +55,9 @@ const QuotaPage: FC = (): ReactElement => {
                   <AlokasiKuota />
                 </Tab.Panel>
                 {/* tab 2 */}
-                <Tab.Panel>2</Tab.Panel>
+                <Tab.Panel>
+                  <RiwayatAlokasi />
+                </Tab.Panel>
               </Tab.Panels>
             </div>
           </Card>
