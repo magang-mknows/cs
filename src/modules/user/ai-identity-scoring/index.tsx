@@ -69,8 +69,6 @@ const AiIdentityScoring: FC = (): ReactElement => {
   type ValidationSchema = z.infer<typeof validationSchema>;
 
   const {
-    control,
-    handleSubmit,
     formState: { isValid },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),

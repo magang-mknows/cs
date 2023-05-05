@@ -146,9 +146,9 @@ const AlokasiKuota: FC = (): ReactElement => {
 
         {/* content 2 */}
         {ProductName === "default" ? (
-          <div className="w-[70%] mr-8"></div>
+          <div className="w-[60%] mr-8"></div>
         ) : (
-          <div className="lg:w-[70%] w-full lg:my-0 my-14 mr-8 shadow-lg">
+          <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
             <div className="flex flex-col">
               <span className="lg:px-32 px-10 pt-7 w-full justify-center font-bold text-lg">
                 Request Summary
@@ -162,7 +162,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                       className="w-fit h-fit"
                     />
                     <span className="w-full lg:text-lg text-sm font-semibold">{ProductName}</span>
-                    <span className="flex items-center md:w-[20%] w-full justify-end text-neutral-400 lg:text-sm text-xs font-normal">
+                    <span className="flex items-center md:w-[30%] w-full justify-end text-neutral-400 lg:text-sm text-xs font-normal">
                       x {Quota}
                     </span>
                   </div>

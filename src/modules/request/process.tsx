@@ -1,4 +1,4 @@
-import { ReactElement, FC, useState } from "react";
+import { ReactElement, FC } from "react";
 import { useResultData, useResultQuery } from "./hooks";
 import Search from "@/components/atoms/search";
 import Pagination from "@/components/atoms/pagination";
@@ -81,7 +81,7 @@ const ProsesPage: FC = (): ReactElement => {
                     {item.nama}
                   </td>
                   <td className="px-6 py-3">{item.tggl_permintaan}</td>
-                  <td className="px-6 py-3 flex justify-start">{item.kendala_proses}</td>
+                  {/* <td className="px-6 py-3 flex justify-start">{item.kendala_proses}</td> */}
                   <td className="px-6 py-3 bg-green-400">
                     <button
                       className={` ${

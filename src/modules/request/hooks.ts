@@ -1,6 +1,11 @@
 import { useRecoilValue, useRecoilState } from "recoil";
-import { requestDummyData, resultFilter, resultSearch } from "./store";
-import { TRequestDataResponse, TResultDataResponse, TResultQueryResponse } from "./types";
+import { requestDummyData, resultFilter, resultSearch, sortedResultData } from "./store";
+import {
+  TRequestDataResponse,
+  TResultDataResponse,
+  TResultQueryResponse,
+  TSortedDataResponse,
+} from "./types";
 
 export const useRequestData = (): TRequestDataResponse => {
   const get = useRecoilValue(requestDummyData);
@@ -13,6 +18,13 @@ export const useResultData = (): TResultDataResponse => {
   const get = useRecoilValue(resultFilter);
   return {
     getResultData: get,
+  };
+};
+
+export const useSortedData = (): TSortedDataResponse => {
+  const get = useRecoilValue(sortedResultData);
+  return {
+    getSortedData: get,
   };
 };
 

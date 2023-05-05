@@ -68,11 +68,11 @@ const Sidebar: FC = (): ReactElement => {
 
           <div className="pt-4 font-medium w-full border-[#F5F5F5] ">
             <div className="flex border-b-2 rounded-md cursor-pointer gap-2 px-2 pt-6 pb-6 items-center">
-              <a href="">
+              <Link to={"/dashboard/home"}>
                 <div className=" rounded-full border-[#4AC1A2] border-2 items-center flex">
                   <img src={"/assets/navbar/user.png"} alt="user" />
                 </div>
-              </a>
+              </Link>
               <div className="font-semibold text-sm text-neutral-500">Fatwa Nasution</div>
             </div>
             {DataSidebar.map((x, i) => {

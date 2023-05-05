@@ -1,4 +1,6 @@
-import { atom, selector, selectorFamily } from "recoil";
+import IconTable from "@/components/atoms/icons/ic-table";
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import { atom, selector } from "recoil";
 import { TRequestDummyData, TResultDataDummy } from "./types";
 
 export const requestDummyData = atom<TRequestDummyData[]>({
@@ -105,47 +107,98 @@ export const resultDummyData = atom<TResultDataDummy[]>({
   key: "result-dummy-data",
   default: [
     {
+      id: 1,
       no: 10002345,
       nik: 327000189266,
       nama: "Albert Maniqueen",
       tggl_permintaan: "11/2/2021",
       tggl_selesai: "11/2/2021",
-      kendala_proses: "-",
       skor: "Sangat Baik",
-      detail: "Lihat Detail",
     },
     {
+      id: 2,
       no: 11122334,
       nik: 32356789,
       nama: "Ludwig Bethoven",
       tggl_permintaan: "15/3/2022",
       tggl_selesai: "11/2/2023",
-      kendala_proses: "NIK salah",
       skor: "Cukup Buruk",
-      detail: "Lihat Detail",
     },
     {
+      id: 3,
       no: 123578912,
       nik: 3278532111,
       nama: "Jawadal Al Hilal",
       tggl_permintaan: "11/8/2021",
       tggl_selesai: "11/2/2024",
-      kendala_proses: "Kualitas KTP buruk",
       skor: "Sangat Baik",
-      detail: "Lihat Detail",
     },
     {
+      id: 4,
       no: 10002345,
       nik: 327000189266,
       nama: "Yasmin Siahaan",
       tggl_permintaan: "11/2/2021",
       tggl_selesai: "11/2/2021",
-      kendala_proses: "-",
       skor: "Sangat Buruk",
-      detail: "Lihat Detail",
     },
   ],
 });
+
+//state for resultDUmmyData
+export const resultDataState = atom({
+  key: "resultDataState",
+  default: resultDummyData,
+});
+
+// Define the sort direction atom
+export const sortDirection = atom<boolean>({
+  key: "sort-direction",
+  default: true,
+});
+
+// Define the selector to sort the data by nik
+export const sortedResultData = selector({
+  key: "sorted-result-data",
+  get: ({ get }) => {
+    // Get the original data
+    const data = get(resultDummyData);
+
+    // Get the current sort direction
+    const isAscending = get(sortDirection);
+
+    // Sort the data by nik in ascending or descending order
+    const sortedData = data.sort((a, b) => (isAscending ? a.nik - b.nik : b.nik - a.nik));
+
+    // Return the sorted data
+    return sortedData;
+  },
+});
+// export type SortType = "ASC" | "DSC";
+
+// export type SortState = {
+//   key: keyof TResultDataDummy;
+//   type: SortType;
+// };
+
+// export const sortState = atom<SortState>({
+//   key: "sortState",
+//   default: { key: "id", type: "ASC" },
+// });
+
+// export const sortedDataState = selector<TResultDataDummy[]>({
+//   key: "sortedDataState",
+//   get: ({ get }) => {
+//     const data = get(resultDummyData);
+//     const sort = get(sortState);
+//     const sortedData = data.sort((a, b) => {
+//       const aValue = typeof a[sort.key] === "number" ? a[sort.key] : (a[sort.key] as number);
+//       const bValue = typeof b[sort.key] === "number" ? b[sort.key] : (b[sort.key] as number);
+//       return sort.type === "ASC" ? aValue - bValue : bValue - aValue;
+//     });
+//     return sortedData;
+//   },
+// });
 
 export const resultFilter = selector({
   key: "result-filter",
@@ -155,16 +208,4 @@ export const resultFilter = selector({
         user.nama.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
         user.nik.toString().toLowerCase().includes(get(resultSearch).toLowerCase()),
     ),
-});
-
-export const sortedTable = selectorFamily({
-  key: "sorted-table",
-  get:
-    (sortedType) =>
-    ({ get }) => {
-      const dataTable = get(resultDummyData);
-      return sortedType === "ASC"
-        ? dataTable.sort((a, b) => a.no - b.no)
-        : dataTable.sort((a, b) => b.no - a.no);
-    },
 });
